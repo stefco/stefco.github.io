@@ -62,6 +62,30 @@
         using <code>rsync</code> to keep files synced between computers
       </a>.
     </p>
+    <p>
+      Does XQuartz launch whenever you fire up <code>vim</code>, causing slow startup?
+      Turns out <code>vim</code> feels out its environment on startup by checking variables,
+      including <code>$DISPLAY</code>, whose value is something like
+      <pre>
+        <code>
+          /private/tmp/com.apple.launchd.muoEIdGNPd/org.macosforge.xquartz:0
+        </code>
+      </pre>
+      Somehow that check causes XQuartz to launch (even though <code>vim</code> won't use it).
+      My solution is to set <code>$DISPLAY</code> to <code>null</code> <em>only</em> for
+      <code>vim</code>-related commands by aliasing them in <code>~/.bash_profile</code>
+      (which Mac uses instead of ~/.bashrc):
+      <pre>
+        <code>
+          # prevent xquartz from opening
+          alias view='DISPLAY="" view'
+          alias vi='DISPLAY="" vi'
+          alias vim='DISPLAY="" vim'
+          alias vimdiff='DISPLAY="" vimdiff'
+          alias vimtutor='DISPLAY="" vimtutor'
+        </code>
+      </pre>
+    </p>
     <h2>Useful LIGO Links</h2>
     <p>
       Getting started with LIGO is somewhat difficult due to the scattered
