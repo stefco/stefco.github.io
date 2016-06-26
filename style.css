@@ -24,9 +24,47 @@ h2 {
   font-size: 32px;
 }
 
+/* bouncing ball keyframe animation courtesy of
+http://www.cssnewbie.com/pure-css-bouncing-ball/#.V2_8qZMrJx3 */
+@-webkit-keyframes moveX {
+      from { left: 0; } to { left: calc(100vw - 52px); }
+}
+@-moz-keyframes moveX {
+      from { left: 0; } to { left: calc(100vw - 52px); }
+}
+@-o-keyframes moveX {
+      from { left: 0; } to { left: calc(100vw - 52px); }
+}
+@keyframes moveX {
+      from { left: 0; } to { left: calc(100vw - 52px); }
+}
+@-webkit-keyframes moveY {
+      from { top: 0; } to { top: calc(100vh - 40px); }
+}
+@-moz-keyframes moveY {
+      from { top: 0; } to { top: calc(100vh - 40px); }
+}
+@-o-keyframes moveY {
+      from { top: 0; } to { top: calc(100vh - 40px); }
+}
+@keyframes moveY {
+      from { top: 0; } to { top: calc(100vh - 40px); }
+}
+
 .flying-emoji {
   position: fixed;
   font-size: 40px;
+  margin: 0;
+  /*
   left: 0;
   top: 0;
+  */
+  -webkit-animation: moveX 3s linear 0s infinite alternate,
+    moveY 3.2s linear 0s infinite alternate;
+  -moz-animation: moveX 3s linear 0s infinite alternate,
+    moveY 3.2s linear 0s infinite alternate;
+  -o-animation: moveX 3s linear 0s infinite alternate,
+    moveY 3.2s linear 0s infinite alternate;
+  animation: moveX 3s linear 0s infinite alternate,
+    moveY 3.2s linear 0s infinite alternate;
 }
