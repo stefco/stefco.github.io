@@ -115,3 +115,14 @@ http://www.cssnewbie.com/pure-css-bouncing-ball/#.V2_8qZMrJx3 */
   -o-animation-delay: -2s;
   animation-delay: -2s;
 }
+
+#emoji-6 {
+  -webkit-animation: moveX 7s linear 0s infinite alternate,
+    moveY 3.7s linear 0s infinite alternate;
+  -moz-animation: moveX 7s linear 0s infinite alternate,
+    moveY 3.7s linear 0s infinite alternate;
+  -o-animation: moveX 7s linear 0s infinite alternate,
+    moveY 3.7s linear 0s infinite alternate;
+  animation: moveX 7s linear 0s infinite alternate,
+    moveY 3.7s linear 0s infinite alternate;
+}
