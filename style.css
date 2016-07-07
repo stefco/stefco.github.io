@@ -125,6 +125,9 @@ http://www.cssnewbie.com/pure-css-bouncing-ball/#.V2_8qZMrJx3 */
     moveY 3.7s linear 1s infinite alternate;
   animation: moveX 7s linear 0s infinite alternate,
     moveY 3.7s linear 1s infinite alternate;
+}
+
+.flying-link img {
   width: 4em;
   height: 4em;
 }
