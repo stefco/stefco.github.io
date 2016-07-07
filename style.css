@@ -53,7 +53,7 @@ http://www.cssnewbie.com/pure-css-bouncing-ball/#.V2_8qZMrJx3 */
 
 .flying-emoji {
   position: fixed;
-  font-size: 40px;
+  font-size: 4em;
   margin: 0;
   /*
   left: 0;
@@ -118,11 +118,13 @@ http://www.cssnewbie.com/pure-css-bouncing-ball/#.V2_8qZMrJx3 */
 
 #emoji-6 {
   -webkit-animation: moveX 7s linear 0s infinite alternate,
-    moveY 3.7s linear 0s infinite alternate;
+    moveY 3.7s linear 1s infinite alternate;
   -moz-animation: moveX 7s linear 0s infinite alternate,
-    moveY 3.7s linear 0s infinite alternate;
+    moveY 3.7s linear 1s infinite alternate;
   -o-animation: moveX 7s linear 0s infinite alternate,
-    moveY 3.7s linear 0s infinite alternate;
+    moveY 3.7s linear 1s infinite alternate;
   animation: moveX 7s linear 0s infinite alternate,
-    moveY 3.7s linear 0s infinite alternate;
+    moveY 3.7s linear 1s infinite alternate;
+  width: 4em;
+  height: 4em;
 }
