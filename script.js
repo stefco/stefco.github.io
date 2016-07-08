@@ -4,6 +4,7 @@ var COLORS = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
 // change colors
 var h1 = document.getElementsByTagName("h1");
 var h2 = document.getElementsByTagName("h2");
+var h4 = document.getElementsByTagName("h4");
 function getDifferentRandomColor(text) {
   var i = COLORS.indexOf(text.style.color);
   i = (i + 1 + Math.floor(Math.random() * (COLORS.length - 1))) % COLORS.length;
@@ -17,6 +18,7 @@ function randomColorize(headings) {
 function randomlyColorizeHeadings() {
   randomColorize(h1);
   randomColorize(h2);
+  randomColorize(h4);
 }
 window.setInterval(randomlyColorizeHeadings, COLOR_CHANGE_INTERVAL);
 
