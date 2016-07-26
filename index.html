@@ -94,6 +94,19 @@
           alias vimtutor='DISPLAY="" vimtutor'
         </code>
       </pre>
+      You can take a similar approach to avoid the
+      <pre>
+        <code>
+          crontab: temp file must be edited in place
+        </code>
+      </pre>
+      error when editing your crontab with vim. Just add:
+      <pre>
+        <code>
+          alias crontab="VIM_CRONTAB=true crontab"
+        </code>
+      </pre>
+      to your <code>bash</code> dotfile.
     </p>
     <p>
       If you are on Columbia's campus and need to print a poster, go with
