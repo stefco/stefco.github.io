@@ -106,7 +106,20 @@
           alias crontab="VIM_CRONTAB=true crontab"
         </code>
       </pre>
-      to your <code>bash</code> dotfile.
+      to your <code>bash</code> dotfile, then edit your <code>.vimrc</code>
+      file to include:
+      <pre>
+        <code>
+          :if $VIM_CRONTAB == "true"
+          :set nobackup
+          :set nowritebackup
+          :endif
+        </code>
+      </pre>
+      (copied wholesale from 
+      <a href="http://drawohara.com/post/6344279/crontab-temp-file-must-be-edited-in-place">
+        here
+      </a>.
     </p>
     <p>
       If you are on Columbia's campus and need to print a poster, go with
