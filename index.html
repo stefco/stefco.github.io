@@ -544,6 +544,12 @@
         randomColorize(h1);
         randomColorize(h2);
       }
+      function pleaseStop() {
+        emoji = document.getElementsByClassName("flying-emoji");
+        for (var i=0; i<emoji.length; i++) {
+          emoji[i].style.display = "none";
+        }
+      }
       window.setInterval(randomlyColorizeHeadings, COLOR_CHANGE_INTERVAL);
     </script>
   </body>
