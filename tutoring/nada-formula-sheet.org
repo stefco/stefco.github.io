@@ -1,52 +1,83 @@
-* Useful Physics Formulae
+#+TITLE: Useful Physics Formulae
+#+AUTHOR: Stefan Countryman
+#+EMAIL: stefan.countryman@gmail.com
+#+OPTIONS: tex:dvisvgm
 
-** Energy
+* Energy
 
-*** Conservation of energy
+** Conservation of energy
 
-    /Explanation:/ The final total energy of a system (the sum of all kinetic
-    #+BEGIN_EXPORT latex
-    ($K_f$)
-    #+END_EXPORT
-    and potential
-    #+BEGIN_EXPORT latex
-    ($U_f$)
-    #+END_EXPORT
-    energy terms) will be exactly the same as the initial total
-    energy plus the work
-    #+BEGIN_EXPORT latex
-    ($W$)
-    #+END_EXPORT
-    done on the system by an external force.
+   /Explanation:/ The final total energy of a system (the sum of all kinetic
+   #+BEGIN_EXPORT latex
+   ($K_f$)
+   #+END_EXPORT
+   and potential
+   #+BEGIN_EXPORT latex
+   ($U_f$)
+   #+END_EXPORT
+   energy terms) will be exactly the same as the initial total
+   energy plus the work
+   #+BEGIN_EXPORT latex
+   ($W$)
+   #+END_EXPORT
+   done on the system by an external force.
 
-    #+BEGIN_EXPORT latex
-    $$
-    \Sigma U_i + \Sigma K_i + W = \Sigma U_f + \Sigma K_f
-    $$
-    #+END_EXPORT
+   #+BEGIN_EXPORT latex
+   $$
+   \Sigma U_i + \Sigma K_i + W = \Sigma U_f + \Sigma K_f
+   $$
+   #+END_EXPORT
 
-*** Work done by a force
+** Work done by a force
 
-    /Explanation:/ If a force acts on an object while the object is moving,
-    #+BEGIN_EXPORT latex
-    then the work done on the object is just the product of the force $F$,
-    the total distance traveled $d$, and the cosine of the angle between
-    the displacement and the force ($\theta$). This is true even if the motion
-    was not in a straight line; $d$ is just the total change in position.
+   /Explanation:/ If a force acts on an object while the object is moving,
+   #+BEGIN_EXPORT latex
+   then the work done on the object is just the product of the force $F$,
+   the total distance traveled $d$, and the cosine of the angle between
+   the displacement and the force ($\theta$). This is true even if the motion
+   was not in a straight line; $d$ is just the total change in position.
 
-    $$
-    W = F d cos(\theta)
-    $$
-    #+END_EXPORT
+   $$
+   W = F d cos(\theta)
+   $$
+   #+END_EXPORT
 
-*** Relationship between work and potential energy
+** Relationship between work and potential energy
 
-    /Explanation:/ The work done by a conservative force is simply the change in
-    *potential energy*, albeit with a negative sign in front (since the energy
-    /lost/ by the potential is /gained/ by the system, or vice versa).
+   /Explanation:/ The work done by a conservative force is simply the change in
+   *potential energy*, albeit with a negative sign in front (since the energy
+   /lost/ by the potential is /gained/ by the system, or vice versa).
 
-    #+BEGIN_EXPORT latex
-    $$
-    W = -\Delta U = - (U_f - U_i)
-    $$
-    #+END_EXPORT
+   #+BEGIN_EXPORT latex
+   $$
+   W = -\Delta U = - (U_f - U_i)
+   $$
+   #+END_EXPORT
+
+* Springs
+
+** Force (Hooke's Law)
+
+   /Explanation:/
+   #+BEGIN_EXPORT latex
+   The force due to a spring is proportional to the spring constant $k$ and the
+   displacement from equilibrium $x$. The negative sign comes from the fact that
+   springs always want to return to their equilibrium length when disturbed; a
+   positive displacement $x$ will therefore result in a force $F_s$ in the negative
+   direction. A stiffer spring will have a larger spring constant $k$.
+
+   $$
+   F_s = - k x
+   $$
+   #+END_EXPORT
+
+** Potential Energy
+
+   /Explanation:/
+   #+BEGIN_EXPORT latex
+   Again, $k$ is the spring constant and $x$ is the displacement from equilibrium.
+
+   $$
+   U_s = k x^2
+   $$
+   #+END_EXPORT
