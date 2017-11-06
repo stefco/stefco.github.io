@@ -81,3 +81,76 @@
    U_s = k x^2
    $$
    #+END_EXPORT
+
+* Momentum
+
+** Center of Mass
+** Definition of Impulse
+** Impulse in terms of Force
+** Definition of Momentum
+** Conservation of Momentum
+** Elastic collision equations
+
+* Rotation
+** Position
+** Speed
+** Acceleration
+** Centripetal Acceleration
+** Torque vs. Force
+
+   #+BEGIN_EXPORT latex
+   $$
+   \tau = F r sin \theta
+   $$
+   #+END_EXPORT
+
+** Parallel Axis Theorem
+
+   #+BEGIN_EXPORT latex
+   $$
+   I = I_{CM} + M d^2
+   $$
+   #+END_EXPORT
+
+** Angular Momentum
+** Second Law
+** Rotational Energy
+
+* Gravitation
+
+  It's just conservation of energy, summing forces, and circular motion plus a
+  new equation for /force/ and a new equation for /potential energy/.
+
+** Force (Newton)
+
+   #+BEGIN_EXPORT latex
+   $$
+   F_g = \frac{G m_1 m_2}{r^2}
+   $$
+   #+END_EXPORT
+
+** Potential Energy
+
+   #+BEGIN_EXPORT latex
+   $$
+   U_g = - \frac{G m_1 m_2}{r}
+   $$
+   #+END_EXPORT
+
+** Gravitational Acceleration (g vs. G)
+
+   #+BEGIN_EXPORT latex
+   This is just the acceleration due to gravity; we have been using the value
+   at Earth's surface, $g = 9.8 m/s$. In the below equation, $M$ is the mass of
+   the large object (like the earth) and $r$ is the distance to the center of
+   the large object. Notice that this is just the same as the force due to
+   gravity, $F_g$, but without the smaller mass.
+
+   $$
+   g = \frac{G M}{r^2}
+   $$
+   #+END_EXPORT
+
+** Superposition
+** Energy of a System
+** Kepler's Laws
