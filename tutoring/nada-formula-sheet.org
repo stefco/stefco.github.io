@@ -3,6 +3,26 @@
 #+EMAIL: stefan.countryman@gmail.com
 #+OPTIONS: tex:dvisvgm
 
+* Kinematics
+
+  There are only two equations you should memorize from kinematics.
+
+** Position
+
+   #+BEGIN_EXPORT latex
+   $$
+   x = \frac{1}{2} a t^2 + v_0 t + x_0
+   $$
+   #+END_EXPORT
+
+** Speed
+
+   #+BEGIN_EXPORT latex
+   $$
+   v = a t + v_0
+   $$
+   #+END_EXPORT
+
 * Energy
 
 ** Conservation of energy
@@ -92,15 +112,68 @@
 ** Elastic collision equations
 
 * Rotation
+
+  Notice that the /translational/ variables for position, speed, and acceleration
+  #+BEGIN_EXPORT latex
+  are all just $R$ times the corresponding
+  #+END_EXPORT
+  /rotational/ variables:
+  #+BEGIN_EXPORT latex
+  angle ($\theta$), speed ($\omega$), and angular acceleration ($\alpha$).
+  #+END_EXPORT
+
 ** Position
+
+   #+BEGIN_EXPORT latex
+   $$
+   \Delta x = R \Delta \theta
+   $$
+   #+END_EXPORT
+
 ** Speed
+
+   #+BEGIN_EXPORT latex
+   $$
+   v = R \omega
+   $$
+   #+END_EXPORT
+
 ** Acceleration
-** Centripetal Acceleration
+
+   #+BEGIN_EXPORT latex
+   $$
+   a = R \alpha
+   $$
+   #+END_EXPORT
+
 ** Torque vs. Force
 
    #+BEGIN_EXPORT latex
    $$
    \tau = F r sin \theta
+   $$
+   #+END_EXPORT
+
+** Moment of Inertia
+
+   #+BEGIN_EXPORT latex
+   Moment of Inertia $I$ is like mass $m$ in translational motion. There are
+   different formulas for different shapes, but otherwise it behaves just like
+   the mass: the bigger it is, the greater the force/torque you need to
+   accelerate the object.
+   #+END_EXPORT
+
+** Angular Momentum
+
+   #+BEGIN_EXPORT latex
+   Angular momentum $L$ is like momentum $p$.
+   #+END_EXPORT
+
+** Centripetal Acceleration
+
+   #+BEGIN_EXPORT latex
+   $$
+   a_{centripetal} = \frac{v^2}{r}
    $$
    #+END_EXPORT
 
@@ -112,9 +185,6 @@
    $$
    #+END_EXPORT
 
-** Angular Momentum
-** Second Law
-** Rotational Energy
 
 * Gravitation
 
@@ -151,6 +221,7 @@
    $$
    #+END_EXPORT
 
-** Superposition
-** Energy of a System
 ** Kepler's Laws
+
+   Don't worry about these for now. They are less important. We can discuss them
+   a bit tomorrow.
