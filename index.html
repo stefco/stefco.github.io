@@ -41,8 +41,20 @@
         font-size: 32px;
       }
 
-      /* bouncing ball keyframe animation courtesy of
-      http://www.cssnewbie.com/pure-css-bouncing-ball/#.V2_8qZMrJx3 */
+      /*
+        bouncing ball keyframe animation courtesy of
+        http://www.cssnewbie.com/pure-css-bouncing-ball/#.V2_8qZMrJx3
+
+        Even the -webkit- flag is safely removable at this point.
+        Version compatibility (including with flags) specified
+        below:
+
+        Chrome: 43, -webkit- 4
+        Edge: 10
+        Firefox: 16, -moz- 5
+        Safari: 9, -webkit- 4
+        Opera: 30, -webkit- 15, -o- 12
+      */
       @-webkit-keyframes moveX {
             from { left: 0; } to { left: calc(100vw - 52px); }
       }
