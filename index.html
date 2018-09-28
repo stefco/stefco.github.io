@@ -70,6 +70,7 @@
 
       .flying-emoji {
         position: fixed;
+        display: none;
         font-size: 4em;
         margin: 0;
         /*
@@ -129,9 +130,15 @@
     <h1>Stefan Countryman</h1>
     <p>
       I am a physics Ph.D. student at Columbia University. I work with Szabolcs
-      and Zsuzsa Marka on Gravitational Wave Astronomy for <a
-      href="http://ligo.org">LIGO</a>. My <a href="https://github.com/stefco">
-      GitHub profile page</a> contains some of my work.
+      and Zsuzsa Marka on gravitational wave astronomy (with a particular focus
+      on multimessenger astronomy) for <a href="http://ligo.org">LIGO</a>.
+      You can see the full list of LIGO publications
+      <a href="https://www.lsc-group.phys.uwm.edu/ppcomm/Papers.html">here</a>
+      as well as our detection papers (organized by event)
+      <a href="https://www.ligo.caltech.edu/page/detection-companion-papers">
+      here</a>. My <a href="https://github.com/stefco">
+      GitHub profile page</a> contains some of my programming work (a lot of it
+      is in private repos; sorry 😔).
     </p>
     <p>
       I enjoy programming in <code>python</code>, <code>bash</code> (Bourne Again SHell) and 
@@ -595,7 +602,7 @@
       </a>.
     </p>
     <!-- click here to end it -->
-    <div id="stopstart" onclick="pleaseStop()">PLEASE STOP</div>
+    <div id="stopstart" onclick="toggleHell()">PLZ START 😍</div>
     <!-- here are some emoji that will fly around-->
     <p id='emoji-1' class='flying-emoji'>😬</p>
     <p id='emoji-2' class='flying-emoji'>🐩</p>
@@ -606,6 +613,8 @@
       <img src='static/Octocat.png'>
     </a>
     <script>
+      var NIGHTMARE_MODE = false;
+      var KILL_ME_NOW;
       var COLOR_CHANGE_INTERVAL = 100
       var COLORS = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
 
@@ -632,8 +641,34 @@
           emoji[i].style.display = "none";
         }
         window.clearInterval(KILL_ME_NOW)
+        // GLOBAL
+        NIGHTMARE_MODE = false;
+        document.getElementById("stopstart").innerText = "PLZ START 😍";
       }
-      KILL_ME_NOW = window.setInterval(randomlyColorizeHeadings, COLOR_CHANGE_INTERVAL);
+      function pleaseStart() {
+        emoji = document.getElementsByClassName("flying-emoji");
+        for (var i=0; i<emoji.length; i++) {
+          emoji[i].style.display = "block";
+        }
+        // GLOBAL
+        KILL_ME_NOW = window.setInterval(
+          randomlyColorizeHeadings,
+          COLOR_CHANGE_INTERVAL
+        );
+        // GLOBAL
+        NIGHTMARE_MODE = true;
+        document.getElementById("stopstart").innerText = "PLEASE STOP 😡";
+      }
+      function toggleHell() {
+        if (NIGHTMARE_MODE) {
+          pleaseStop();
+        } else {
+          pleaseStart();
+        }
+      }
+      // pleaseStart();
+      // Let's turn off the madness by default (for now)...
+      // pleaseStop();
     </script>
   </body>
 </html>
