@@ -666,6 +666,12 @@
           pleaseStart();
         }
       }
+
+document.body.onkeyup = function(e){
+  if(e.keyCode == 32){
+    toggleHell();
+  }
+}
       // pleaseStart();
       // Let's turn off the madness by default (for now)...
       // pleaseStop();
