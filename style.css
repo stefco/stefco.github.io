@@ -40,12 +40,12 @@ pre {
   margin: 0;
   font-family: IosevkaSlab, "Courier New", Courier, monospace;
   font-size: 0.75em;
-  color: rgb(123, 123, 123);
+  color: rgb(203, 203, 203);
 }
 
 .comment {
   font-style: italic;
-  color: rgb(132, 165, 127);
+  color: rgb(178, 209, 173);
 }
 
 .important-comment {
@@ -59,7 +59,7 @@ pre {
 
 .str {
   /* color: rgb(41, 165, 159); */
-  color: hotpink;
+  color: rgb(252, 166, 209);
 }
 
 a {
