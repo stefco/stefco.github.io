@@ -713,11 +713,29 @@
         }
       }
 
-document.body.onkeyup = function(e){
-  if(e.keyCode == 32){
-    toggleHell();
-  }
-}
+      /*
+      document.body.onkeyup = function(e){
+        if(e.keyCode == 32){
+          toggleHell();
+        }
+      }
+      */
+
+      var scrollTimer = -1;
+
+      function bodyScroll() {
+          if (scrollTimer != -1)
+              clearTimeout(scrollTimer);
+
+          scrollTimer = window.setTimeout("scrollFinished()", 100);
+      }
+
+      function scrollFinished() {
+        scrollTimer = -1;
+        toggleHell();
+      }
+
+      document.body.onscroll = bodyScroll;
       // pleaseStart();
       // Let's turn off the madness by default (for now)...
       // pleaseStop();
