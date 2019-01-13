@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <pre><span class='comment'>#!/bin/bash
+# Launch `stef_shell` REPL or GUI website using latest defaults.
+# (c) Stefan Trklja Countryman, 2019
+#
+# <span class='important-comment'>&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;                                                          </span>
+# <span class='important-comment'>&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;&#x255A;&#x2550;&#x2550;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x255D;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;                                                          </span>
+# <span class='important-comment'>&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;   &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;  &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;                                                            </span>
+# <span class='important-comment'>&#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x255D;  &#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x255D;                                                            </span>
+# <span class='important-comment'>&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2551;                                                               </span>
+# <span class='important-comment'>&#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;   &#x255A;&#x2550;&#x255D;   &#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;&#x255A;&#x2550;&#x255D;                                                               </span>
+#                                                                                            
+# <span class='important-comment'> &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2557;   &#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2557;   &#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2557;   &#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2557;   &#x2588;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2588;&#x2557;   &#x2588;&#x2588;&#x2557;</span>
+# <span class='important-comment'>&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2550;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;  &#x2588;&#x2588;&#x2551;&#x255A;&#x2550;&#x2550;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x255D;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588;&#x2557;&#x255A;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2554;&#x255D;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;  &#x2588;&#x2588;&#x2551;</span>
+# <span class='important-comment'>&#x2588;&#x2588;&#x2551;     &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2554;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2554;&#x255D; &#x255A;&#x2588;&#x2588;&#x2588;&#x2588;&#x2554;&#x255D; &#x2588;&#x2588;&#x2554;&#x2588;&#x2588;&#x2588;&#x2588;&#x2554;&#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2554;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2551;</span>
+# <span class='important-comment'>&#x2588;&#x2588;&#x2551;     &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2551;&#x255A;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588;&#x2557;  &#x255A;&#x2588;&#x2588;&#x2554;&#x255D;  &#x2588;&#x2588;&#x2551;&#x255A;&#x2588;&#x2588;&#x2554;&#x255D;&#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2551;&#x255A;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2551;</span>
+# <span class='important-comment'>&#x255A;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x255A;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2554;&#x255D;&#x255A;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2554;&#x255D;&#x2588;&#x2588;&#x2551; &#x255A;&#x2588;&#x2588;&#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;  &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551; &#x255A;&#x2550;&#x255D; &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2551;  &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2551; &#x255A;&#x2588;&#x2588;&#x2588;&#x2588;&#x2551;</span>
+# <span class='important-comment'> &#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D; &#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;  &#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D; &#x255A;&#x2550;&#x255D;  &#x255A;&#x2550;&#x2550;&#x2550;&#x255D;   &#x255A;&#x2550;&#x255D;   &#x255A;&#x2550;&#x255D;  &#x255A;&#x2550;&#x255D;   &#x255A;&#x2550;&#x255D;   &#x255A;&#x2550;&#x255D;     &#x255A;&#x2550;&#x255D;&#x255A;&#x2550;&#x255D;  &#x255A;&#x2550;&#x255D;&#x255A;&#x2550;&#x255D;  &#x255A;&#x2550;&#x2550;&#x2550;&#x255D;</span>
+
+# consts</span>
+<span class='const'>CONTACT</span>='<a href="mailto:stef@stc.sh">stef[at]stc.sh</a>'  <span class='important-comment comment'># Stef's email address</span>
+<span class='const'>BIO</span>=<a href="bio.txt">bio.txt</a>               <span class='important-comment comment'># Stef's biography</span>
+<span class='const'>RESUME</span>=<a href="resume.pdf">resume.tex</a>         <span class='important-comment comment'># Stef's resume</span>
+<span class='const'>CV</span>=<a href="cv.pdf">cv.tex</a>                 <span class='important-comment comment'># Stef's CV</span>
+<span class='const'>PUBLICATIONS</span>=<a href="pubs.html">pubs.txt</a>     <span class='important-comment comment'># List of Stef's publications</span>
+<span class='const'>GITHUB</span>=<a href="https://github.com/stefco">stefco</a>             <span class='important-comment comment'># Stef's GitHub</span>
+<span class='const'>PROJECTS</span>=<a href="projects.d">projects.d</a>       <span class='important-comment comment'># Fun projects and volunteering</span>
+<span class='const'>BLOGDIR</span>=<a href="blog.d">blog.d</a>            <span class='important-comment comment'># Bad opinions</span>
+<span class='const'>GOOD_CODE</span>=<a href="good_code.d">good_code.d</a>     <span class='important-comment comment'># Code written out of love</span>
+<span class='const'>MISCREANTS</span>=<a href="bad_code.d">bad_code.d</a>     <span class='important-comment comment'># Code written in anger</span>
+<span class='const'>PORTRAIT</span>=<a href="portrait.txt">portrait.txt</a>     <span class='important-comment comment'># Pic of Stef</span>
+
+usage() {
+    sed <span class='str'>'s/^ *//;/^$/d'</span> &lt;&lt;&lt;<span class='str'>'
+        USAGE: stc.sh [-g] [-h]
+
+        Launch an interactive `stef_shell` terminal session to learn more about
+        Stefan Trklja Countryman. Launch a regular website using `-g` flag.
+
+        OPTIONS:
+        -h          Print this help string.
+        -g          Launch website.
+    '</span>
+}
+
+<span class='comment'># parse CLI</span>
+while getopts "hg" opt; do
+    case ${opt} in
+        h)  usage &amp;&amp; exit 0;;
+        g)  make gui.html &amp;&amp; open gui.html &amp;&amp; exit 0;;
+        \?) echo "Bad option: -${OPTARG}" &amp;&amp; usage &amp;&amp; exit 1;;
+    esac
+done
+
+<span class='comment'># launch repl or compile and launch website.</span>
+stef_shell \
+    --cv "${CV}" \
+    --bio "${BIO}" \
+    --resume "${RESUME}" \
+    --github "${GITHUB}" \
+    --contact "${CONTACT}" \
+    --blog-dir "${BLOGDIR}" \
+    --portrait "${PORTRAIT}" \
+    --projects "${PROJECTS}" \
+    --good-code "${GOOD_CODE}" \
+    --miscreants "${MISCREANTS}" \
+    --publications "${PUBLICATIONS}"
+
+<span class='comment'># TODO old website deprecated, UI was too advanced for user tastes; delete this</span>
+<span class='comment'># <a href="oldsite">old_website</a> --please-stop=true</span>
+    </pre>
+  </body>
+</html>

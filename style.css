@@ -1,0 +1,91 @@
+/* Nice descriptions of font formats and how to use them in CSS:
+  * https://css-tricks.com/snippets/css/using-font-face/
+  * https://creativemarket.com/blog/the-missing-guide-to-font-formats
+  * https://www.456bereastreet.com/archive/201012/font-face_tip_define_font-weight_and_font-style_to_keep_your_css_simple/
+  */
+@font-face {
+  font-family: 'IosevkaSlab';
+  src: url('/fonts/iosevka-slab/medium.woff2') format('woff2'),
+        url('/fonts/iosevka-slab/medium.woff') format('woff'),
+        url('/fonts/iosevka-slab/medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'IosevkaSlab';
+  src: url('/fonts/iosevka-slab/mediumitalic.woff2') format('woff2'),
+        url('/fonts/iosevka-slab/mediumitalic.woff') format('woff'),
+        url('/fonts/iosevka-slab/mediumitalic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'IosevkaSlab';
+  src: url('/fonts/iosevka-slab/bold.woff2') format('woff2'),
+        url('/fonts/iosevka-slab/bold.woff') format('woff'),
+        url('/fonts/iosevka-slab/bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'IosevkaSlab';
+  src: url('/fonts/iosevka-slab/bolditalic.woff2') format('woff2'),
+        url('/fonts/iosevka-slab/bolditalic.woff') format('woff'),
+        url('/fonts/iosevka-slab/bolditalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+pre {
+  margin: 0;
+  font-family: IosevkaSlab, "Courier New", Courier, monospace;
+  font-size: 0.75em;
+  color: rgb(123, 123, 123);
+}
+
+.comment {
+  font-style: italic;
+  color: rgb(132, 165, 127);
+}
+
+.important-comment {
+  color: rgb(34, 71, 29);
+}
+
+.const {
+  font-weight: bold;
+  color: black;
+}
+
+.str {
+  /* color: rgb(41, 165, 159); */
+  color: hotpink;
+}
+
+a {
+  font-weight: bold;
+}
+
+/* unvisited link */
+a:link {
+  color: red;
+}
+
+/* visited link */
+a:visited {
+  color: rgb(148, 21, 160);
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+
+body {
+  background-color: rgb(249, 249, 249);
+}
