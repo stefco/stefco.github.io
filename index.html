@@ -1,12 +1,15 @@
 <!doctype html>
 <html>
   <head>
+    <!--
+      uncomment the line below for live refreshing during development
+    -->
+    <!-- <script type="text/javascript" src="http://livejs.com/live.js"></script> -->
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Stefan Trklja Countryman</title>
   </head>
   <body>
     <pre><span class='comment'>#!/bin/bash
-# Launch `stef_shell` REPL or GUI website using latest defaults.
 # (c) Stefan Trklja Countryman, 2019
 # <span class='important-comment'>.&#9604;&#9604; &#183; &#9604;&#9604;&#9604;&#9604;&#9604;&#9604;&#9604;&#9604; .&#183;&#9604;&#9604;&#9604;                                     </span>
 # <span class='important-comment'>&#9616;&#9608; &#9600;. &#8226;&#9608;&#9608;  &#9600;&#9604;.&#9600;&#183;&#9616;&#9604;&#9604;&#183;                                     </span>
@@ -17,113 +20,104 @@
 # <span class='important-comment'>&#9616;&#9608; &#9612;&#9642;&#9642;     &#9608;&#9642;&#9608;&#9608;&#9612;&#8226;&#9608;&#9612;&#9616;&#9608;&#8226;&#9608;&#9608;  &#9600;&#9604; &#9608;&#183;&#9616;&#9608;&#9642;&#9608;&#9608;&#9612;&#183;&#9608;&#9608; &#9616;&#9608;&#9608;&#9608;&#9642;&#9616;&#9608; &#9600;&#9608; &#8226;&#9608;&#9612;&#9616;&#9608;</span>
 # <span class='important-comment'>&#9608;&#9608; &#9604;&#9604; &#9604;&#9608;&#9600;&#9604; &#9608;&#9612;&#9616;&#9608;&#9612;&#9616;&#9608;&#9616;&#9616;&#9612; &#9616;&#9608;.&#9642;&#9616;&#9600;&#9600;&#9604; &#9616;&#9608;&#9612;&#9616;&#9608;&#9642;&#9616;&#9608; &#9612;&#9616;&#9612;&#9616;&#9608;&#183;&#9604;&#9608;&#9600;&#9600;&#9608; &#9616;&#9608;&#9616;&#9616;&#9612;</span>
 # <span class='important-comment'>&#9616;&#9608;&#9608;&#9608;&#9612;&#9616;&#9608;&#9612;.&#9616;&#9612;&#9616;&#9608;&#9604;&#9608;&#9612;&#9608;&#9608;&#9616;&#9608;&#9612; &#9616;&#9608;&#9612;&#183;&#9616;&#9608;&#8226;&#9608;&#9612; &#9616;&#9608;&#9600;&#183;.&#9608;&#9608; &#9608;&#9608;&#9612;&#9616;&#9608;&#9612;&#9616;&#9608; &#9642;&#9616;&#9612;&#9608;&#9608;&#9616;&#9608;&#9612;</span>
-# <span class='important-comment'>&#183;&#9600;&#9600;&#9600;  &#9600;&#9608;&#9604;&#9600;&#9642; &#9600;&#9600;&#9600; &#9600;&#9600; &#9608;&#9642; &#9600;&#9600;&#9600; .&#9600;  &#9600;  &#9600; &#8226; &#9600;&#9600;  &#9608;&#9642;&#9600;&#9600;&#9600; &#9600;  &#9600; &#9600;&#9600; &#9608;&#9642;</span>
-<!-- # <span class='important-comment'>&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;                                                          </span>
-# <span class='important-comment'>&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;&#x255A;&#x2550;&#x2550;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x255D;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;                                                          </span>
-# <span class='important-comment'>&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;   &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;  &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;                                                            </span>
-# <span class='important-comment'>&#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x255D;  &#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x255D;                                                            </span>
-# <span class='important-comment'>&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2551;                                                               </span>
-# <span class='important-comment'>&#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;   &#x255A;&#x2550;&#x255D;   &#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;&#x255A;&#x2550;&#x255D;                                                               </span>
-#                                                                                            
-# <span class='important-comment'> &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2557;   &#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2557;   &#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2557;   &#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2557;   &#x2588;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2588;&#x2557;   &#x2588;&#x2588;&#x2557;</span>
-# <span class='important-comment'>&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2550;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;  &#x2588;&#x2588;&#x2551;&#x255A;&#x2550;&#x2550;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x255D;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588;&#x2557;&#x255A;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2554;&#x255D;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;  &#x2588;&#x2588;&#x2551;</span>
-# <span class='important-comment'>&#x2588;&#x2588;&#x2551;     &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2554;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2554;&#x255D; &#x255A;&#x2588;&#x2588;&#x2588;&#x2588;&#x2554;&#x255D; &#x2588;&#x2588;&#x2554;&#x2588;&#x2588;&#x2588;&#x2588;&#x2554;&#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2554;&#x2588;&#x2588;&#x2557; &#x2588;&#x2588;&#x2551;</span>
-# <span class='important-comment'>&#x2588;&#x2588;&#x2551;     &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2551;&#x255A;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588;&#x2557;  &#x255A;&#x2588;&#x2588;&#x2554;&#x255D;  &#x2588;&#x2588;&#x2551;&#x255A;&#x2588;&#x2588;&#x2554;&#x255D;&#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2554;&#x2550;&#x2550;&#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2551;&#x255A;&#x2588;&#x2588;&#x2557;&#x2588;&#x2588;&#x2551;</span>
-# <span class='important-comment'>&#x255A;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2557;&#x255A;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2554;&#x255D;&#x255A;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2588;&#x2554;&#x255D;&#x2588;&#x2588;&#x2551; &#x255A;&#x2588;&#x2588;&#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;  &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551;   &#x2588;&#x2588;&#x2551; &#x255A;&#x2550;&#x255D; &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2551;  &#x2588;&#x2588;&#x2551;&#x2588;&#x2588;&#x2551; &#x255A;&#x2588;&#x2588;&#x2588;&#x2588;&#x2551;</span>
-# <span class='important-comment'> &#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D; &#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D;  &#x255A;&#x2550;&#x2550;&#x2550;&#x2550;&#x2550;&#x255D; &#x255A;&#x2550;&#x255D;  &#x255A;&#x2550;&#x2550;&#x2550;&#x255D;   &#x255A;&#x2550;&#x255D;   &#x255A;&#x2550;&#x255D;  &#x255A;&#x2550;&#x255D;   &#x255A;&#x2550;&#x255D;   &#x255A;&#x2550;&#x255D;     &#x255A;&#x2550;&#x255D;&#x255A;&#x2550;&#x255D;  &#x255A;&#x2550;&#x255D;&#x255A;&#x2550;&#x255D;  &#x255A;&#x2550;&#x2550;&#x2550;&#x255D;</span>-->
-# consts</span>
+# <span class='important-comment'>&#183;&#9600;&#9600;&#9600;  &#9600;&#9608;&#9604;&#9600;&#9642; &#9600;&#9600;&#9600; &#9600;&#9600; &#9608;&#9642; &#9600;&#9600;&#9600; .&#9600;  &#9600;  &#9600; &#8226; &#9600;&#9600;  &#9608;&#9642;&#9600;&#9600;&#9600; &#9600;  &#9600; &#9600;&#9600; &#9608;&#9642;</span></span>
+
+<img id='portrait' src='/github.jpg'/>
+<div class='nav'><span class='comment'># consts</span>
 <span class='const'>CONTACT</span>='<a href="mailto:stef@stc.sh">stef[at]stc.sh</a>'<!-- <span class='const'>BIO</span>=<a href="#bio">bio</a> -->
 <span class='const'>PUBLICATIONS</span>=<a href="https://ui.adsabs.harvard.edu/search/fq=%7B!type%3Daqp%20v%3D%24fq_database%7D&fq_database=database%3A%20astronomy&q=author%3A(%22Countryman%2C%20Stefan%20T%22)&sort=date%20desc%2C%20bibcode%20desc&p_=0">pubs.html</a>
 <span class='const'>GITHUB</span>=<a href="https://github.com/stefco">stefco</a>
-<span class='const'>PROJECTS</span>=<a href="projects.d">projects.d</a>
-<span class='const'>BLOGDIR</span>=<a href="blog.d">blog.d</a>
-<span class='const'>GOOD_CODE</span>=<a href="good_code.d">good_code.d</a>
+<span class='const'>PROJECTS</span>=<a href="projects.d">projects.d</a><!--<span class='const'>BLOGDIR</span>=<a href="blog.d">blog.d</a>--><!--<span class='const'>GOOD_CODE</span>=<a href="good_code.d">good_code.d</a>-->
 <span class='const'>PORTRAIT</span>=<a href="portrait.txt">portrait.txt</a>
+</div>
 
 usage() {
-    sed <span class='str'>'s/^ *//;/^$/d'</span> &lt;&lt;&lt;<span class='str'>'
-        <a name=bio></a>
-        BIO: stc.sh [-h]
+    cat &lt;&lt;&lt;<span class='str'>'
+<a name=bio></a>
+BIO: stc.sh [-h]
 
-        OVERVIEW
-        --------
+OVERVIEW
+--------
 
-        I'm a physics Ph.D. candidate at Columbia University in <a href="http://geco.markalab.org">Szabolcs</a>
-        <a href="http://geco.markalab.org">Marka's group</a> working on multi-messenger astrophysics (MMA) using
-        gravitational waves (GW) and high energy neutrinos. I wrote and maintan
-        <a href='http://multimessenger.science'>LLAMA</a>, a cutting-edge MMA software framework implementing the world's
-        first GW+neutrino online search pipeline. I have also worked
-        extensively on LIGO's timing system hardware and diagnostic software as
-        well as education and outreach.
+I'm a physics Ph.D. candidate at Columbia University in <a href="http://geco.markalab.org">Szabolcs</a>
+<a href="http://geco.markalab.org">Marka's group</a> working on multi-messenger astrophysics (MMA) using
+gravitational waves (GW) and high energy neutrinos. I wrote and
+maintan <a href='http://multimessenger.science'>LLAMA</a>, a cutting-edge MMA software framework implementing
+the world's first GW+neutrino online search pipeline. I have also
+worked extensively on LIGO's timing system hardware and diagnostic
+software as well as education and outreach.
 
-        EARLY PHD RESEARCH: LIGO TIMING SYSTEM
-        --------------------------------------
+EARLY PHD RESEARCH: LIGO TIMING SYSTEM
+--------------------------------------
 
-        At the beginning of my Ph.D., I resumed my undergraduate work on LIGO's
-        timing system. I developed diagnostic systems and software to ensure
-        the timing system's reliability. This involved developing remote-work
-        tools, devops methods (like virtual-machine images), <a href="https://github.com/stefco/geco_channels">installation</a>
-        documentation, maintenance <a href="https://github.com/stefco/geco_timing_checklists">procedures</a>, and documentation that enabled
-        timing system supervision from NYC. Thanks in large part to these
-        efforts, my group has maintained the timing systems at both LIGO sites
-        (this is no small accomplishment; the Columbia group is the only group
-        that manages and maintains mission-critical LIGO hardware from
-        off-site. The timing system has flawlessly through the Advanced LIGO
-        era, enabling precise event reconstruction and source localization in
-        support of LIGO's historic, Nobel-prize-winning detections. Japan's
-        KAGRA GW detector will also rely on our proven timing system.
+At the beginning of my Ph.D., I resumed my undergraduate work on
+LIGO's timing system. I developed diagnostic systems and software to
+ensure the timing system's reliability. This involved developing
+remote-work tools, devops methods (like virtual-machine images),
+<a href="https://github.com/stefco/geco_channels">installation</a> documentation, maintenance <a href="https://github.com/stefco/geco_timing_checklists">procedures</a>,
+and documentation that enabled timing system supervision from NYC.
+Thanks in large part to these efforts, my group has maintained the
+timing systems at both LIGO sites (this is no small accomplishment;
+the Columbia group is the only group that manages and maintains
+mission-critical LIGO hardware from off-site. The timing system has
+flawlessly through the Advanced LIGO era, enabling precise event
+reconstruction and source localization in support of LIGO's historic,
+Nobel-prize-winning detections. Japan's KAGRA GW detector will also
+rely on our proven timing system.
 
-        LATE PHD RESEARCH: GW/NEUTRINO MULTI-MESSENGER PIPELINE
-        -------------------------------------------------------
+LATE PHD RESEARCH: GW/NEUTRINO MULTI-MESSENGER PIPELINE
+-------------------------------------------------------
 
-        In the late Initial LIGO and early (O1) Advanced LIGO eras, my team
-        spearheaded the first GW/neutrino offline searches. During aLIGO's
-        second observing run (O2), I took their method online by creating a
-        software framework, LLAMA, for conducting this GW/neutrino search and
-        disseminating results in low-latency. LLAMA was the world's first
-        fully-automated low-latency GW/neutrino search pipeline and the first
-        automated GW follow-up search to include spatial priors in its
-        calculations. It proved to be highly reliable and was regularly the
-        fastest GW follow-up search to run during O2. Follow-up was performed
-        for all O2 triggers, including historic kilonova GW170817;
-        sub-threshold joint triggers overlapping with the original 1-detector
-        GW skymap were successfully distributed and followed up by some EM
-        partners, but improved GW skymap localizations showed a
-        non-coincidence. The LLAMA framework was also used during O2 to run
-        critical diagnostic checks of LIGO’s timing system. It processed public
-        triggers and demonstrated the ability to process LIGO sub-threshold
-        triggers as well (though actual significance and plotting steps
-        could not performed on sub-threshold triggers without code review).
-        I used an advanced architecture, cloud-hosting solutions, and other
-        advanced devops practices (which are only now becoming standard practice
-        in MMA efforts) to achieve its exceptional performance.
+In the late Initial LIGO and early (O1) Advanced LIGO eras, my team
+spearheaded the first GW/neutrino offline searches. During aLIGO's
+second observing run (O2), I took their method online by creating a
+software framework, LLAMA, for conducting this GW/neutrino search and
+disseminating results in low-latency. LLAMA was the world's first
+fully-automated low-latency GW/neutrino search pipeline and the first
+automated GW follow-up search to include spatial priors in its
+calculations. It proved to be highly reliable and was regularly the
+fastest GW follow-up search to run during O2. Follow-up was performed
+for all O2 triggers, including historic kilonova GW170817;
+sub-threshold joint triggers overlapping with the original 1-detector
+GW skymap were successfully distributed and followed up by some EM
+partners, but improved GW skymap localizations showed a
+non-coincidence. The LLAMA framework was also used during O2 to run
+critical diagnostic checks of LIGO's timing system. It processed
+public triggers and demonstrated the ability to process LIGO
+sub-threshold triggers as well (though actual significance and
+plotting steps could not performed on sub-threshold triggers without
+code review).  I used an advanced architecture, cloud-hosting
+solutions, and other advanced devops practices (which are only now
+becoming standard practice in MMA efforts) to achieve its exceptional
+performance.
 
-        Throughout this time, I gained deep and extensive development and
-        astro-infrastructure expertise by creating software tools in support of
-        my entire team's scientific goals (many of these tools can be found in
-        <a href="https://github.com/stefco/geco_data">these</a> <a href="https://github.com/stefco/geco_plots">three</a> <a href="https://github.com/stefco/geco_channels">repositories</a>). I developed advanced software for data retrieval, caching,
-        validating, cleaning, and formatting, all highly non-trivial tasks due
-        to LIGO's large data volumes and limited infrastructure. This also
-        required developing <a href="https://github.com/stefco/geco_vm">virtual</a> <a href="https://github.com/stefco/ligo-vm">machines</a>, cloud-hosted images, <a href="https://github.com/stefco/geco_env">provisioning scripts</a>, and
-        <a href=http://multimessenger.science/">extensive</a> <a href="https://github.com/stefco/geco_docs">documentation</a> to cope with the tremendous operational
-        complexity of using constantly-changing experimental (in all senses of
-        the word) scientific libraries with limited support and documentation.
-        My teammate Rainer Corley and I extensively documented the photodiode
-        layout of the Interferometer Sensing and Control (ISC) system (a
-        crucial susbsytem used for scientific data collection and
-        interferometer control) and <a href="https://github.com/stefco/isc">created</a> an interactive
-        <a href="http://isc-ligo.multimessenger.science">installation map</a>
-        showing the layout and operation of the whole system. I contributed to
-        many other on-site infrastructure in other ways as well, including making
-        useful LIGO tools <a href="https://github.com/stefco/macports-ports">available on MacPorts</a>, adding control interfaces to
-        EPICS/MEDM industrial control system. I also
-        contributed my technical expertise to my group's <a href="https://github.com/stefco/mousewalker">medical research</a>
-        efforts. (Some public work is linked above; most of the rest is on my
-        GitHub.)
+Throughout this time, I gained highly extensive expertise in software
+development/operations methods and and astrophysics infrastructure by
+creating software tools in support of my entire team's scientific
+goals (many of these tools can be found in <a href="https://github.com/stefco/geco_data">these</a> <a href="https://github.com/stefco/geco_plots">three</a> <a href="https://github.com/stefco/geco_channels">repositories</a>).
+I developed advanced software for data retrieval, caching, validating,
+cleaning, and formatting, all highly non-trivial tasks due to LIGO's
+large data volumes and limited infrastructure. This also required
+developing <a href="https://github.com/stefco/geco_vm">virtual</a> <a href="https://github.com/stefco/ligo-vm">machines</a>, cloud-hosted images, provisioning
+<a href="https://github.com/stefco/geco_env">scripts</a>, and <a href=http://multimessenger.science/">extensive</a> <a href="https://github.com/stefco/geco_docs">documentation</a> to cope with the tremendous
+operational complexity of using constantly-changing experimental (in
+all senses of the word) scientific libraries with limited support and
+documentation.  My teammate Rainer Corley and I extensively documented
+the photodiode layout of the Interferometer Sensing and Control (ISC)
+system (a crucial susbsytem used for scientific data collection and
+interferometer control) and <a href="https://github.com/stefco/isc">created</a> an interactive <a href="http://isc-ligo.multimessenger.science">installation map</a>
+showing the layout and operation of the whole system. I many other
+contributions to detector operations, like making useful LIGO tools
+<a href="https://github.com/stefco/macports-ports">available on MacPorts</a> and adding control interfaces to LIGO's
+EPICS/MEDM industrial control system. I also used my technical
+expertise to make modest non-astrohysics contributions to to my
+group's <a href="https://github.com/stefco/mousewalker">public health</a> efforts. (Much of my publically-available work
+is linked above; some of the rest is spread across DCC, ArXiV,
+BitBucket, and my GitHub.)
 
-        OPTIONS:
-        -h          Print this help string.
-    '</span>
+OPTIONS:
+-h          Print this help string.
+'</span>
     exit 0
 }
 for opt in "$@"; do [[ "${opt}" = "-h" ]] &amp;&amp; usage; done
@@ -132,10 +126,8 @@ for opt in "$@"; do [[ "${opt}" = "-h" ]] &amp;&amp; usage; done
 stef_shell \
     --github "${GITHUB}" \
     --contact "${CONTACT}" \
-    --blog-dir "${BLOGDIR}" \
     --portrait "${PORTRAIT}" \
     --projects "${PROJECTS}" \
-    --good-code "${GOOD_CODE}" \
     --publications "${PUBLICATIONS}"
 
 <span class='comment'># old website deprecated, UI was too advanced for user tastes; click through</span>

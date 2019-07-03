@@ -36,10 +36,13 @@
   font-style: italic;
 }
 
-pre {
-  margin: 0;
+body, pre {
   font-family: IosevkaSlab, "Courier New", Courier, monospace;
   font-size: 1em;
+}
+
+pre {
+  margin: 0;
   color: rgb(203, 203, 203);
 }
 
@@ -90,4 +93,44 @@ a:active {
 
 body {
   background-color: rgb(249, 249, 249);
+}
+
+.nav {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+img#portrait {
+  /* border-radius: 1em; */
+  border: ridge 0.5em tan;
+}
+
+/* big screens only */
+@media (min-width:55em) {
+
+  img#portrait {
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    max-width: 20em;
+  }
+
+}
+
+/* small screens only */
+@media (max-width:55em) {
+
+  img#portrait {
+    width: 90vw;
+    max-width: 25em;
+    display: block;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+  }
+
+  .nav, .nav span {
+    font-size: 1.5em;
+  }
+
 }
