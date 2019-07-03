@@ -2,32 +2,29 @@
 # Launch `stef_shell` REPL or GUI website using latest defaults.
 # (c) Stefan Trklja Countryman, 2019
 #
-# ███████╗████████╗███████╗███████╗                                                          
-# ██╔════╝╚══██╔══╝██╔════╝██╔════╝                                                          
-# ███████╗   ██║   █████╗  █████╗                                                            
-# ╚════██║   ██║   ██╔══╝  ██╔══╝                                                            
-# ███████║   ██║   ███████╗██║                                                               
-# ╚══════╝   ╚═╝   ╚══════╝╚═╝                                                               
-#                                                                                            
-#  ██████╗ ██████╗ ██╗   ██╗███╗   ██╗████████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███╗   ██╗
-# ██╔════╝██╔═══██╗██║   ██║████╗  ██║╚══██╔══╝██╔══██╗╚██╗ ██╔╝████╗ ████║██╔══██╗████╗  ██║
-# ██║     ██║   ██║██║   ██║██╔██╗ ██║   ██║   ██████╔╝ ╚████╔╝ ██╔████╔██║███████║██╔██╗ ██║
-# ██║     ██║   ██║██║   ██║██║╚██╗██║   ██║   ██╔══██╗  ╚██╔╝  ██║╚██╔╝██║██╔══██║██║╚██╗██║
-# ╚██████╗╚██████╔╝╚██████╔╝██║ ╚████║   ██║   ██║  ██║   ██║   ██║ ╚═╝ ██║██║  ██║██║ ╚████║
-#  ╚═════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
+# .▄▄ · ▄▄▄▄▄▄▄▄ .·▄▄▄                                     
+# ▐█ ▀. •██  ▀▄.▀·▐▄▄·                                     
+# ▄▀▀▀█▄ ▐█.▪▐▀▀▪▄██▪                                      
+# ▐█▄▪▐█ ▐█▌·▐█▄▄▌██▌.                                     
+#  ▀▀▀▀  ▀▀▀  ▀▀▀ ▀▀▀                                      
+#  ▄▄·       ▄• ▄▌ ▐ ▄ ▄▄▄▄▄▄▄▄   ▄· ▄▌• ▌ ▄ ·.  ▄▄▄·  ▐ ▄ 
+# ▐█ ▌▪▪     █▪██▌•█▌▐█•██  ▀▄ █·▐█▪██▌·██ ▐███▪▐█ ▀█ •█▌▐█
+# ██ ▄▄ ▄█▀▄ █▌▐█▌▐█▐▐▌ ▐█.▪▐▀▀▄ ▐█▌▐█▪▐█ ▌▐▌▐█·▄█▀▀█ ▐█▐▐▌
+# ▐███▌▐█▌.▐▌▐█▄█▌██▐█▌ ▐█▌·▐█•█▌ ▐█▀·.██ ██▌▐█▌▐█ ▪▐▌██▐█▌
+# ·▀▀▀  ▀█▄▀▪ ▀▀▀ ▀▀ █▪ ▀▀▀ .▀  ▀  ▀ • ▀▀  █▪▀▀▀ ▀  ▀ ▀▀ █▪
 
 # consts
-CONTACT='stef[at]stc.sh'  # Stef's email address
-BIO=bio.txt               # Stef's biography
-RESUME=resume.tex         # Stef's resume
-CV=cv.tex                 # Stef's CV
-PUBLICATIONS=pubs.txt     # List of Stef's publications
-GITHUB=stefco             # Stef's GitHub
-PROJECTS=projects.d       # Fun projects and volunteering
-BLOGDIR=blog.d            # Bad opinions
-GOOD_CODE=good_code.d     # Code written out of love
-MISCREANTS=bad_code.d     # Code written in anger
-PORTRAIT=portrait.txt     # Pic of Stef
+CONTACT='stef[at]stc.sh'
+BIO=bio.txt
+RESUME=resume.tex
+CV=cv.tex
+PUBLICATIONS=pubs.txt
+GITHUB=stefco
+PROJECTS=projects.d
+BLOGDIR=blog.d
+GOOD_CODE=good_code.d
+MISCREANTS=bad_code.d
+PORTRAIT=portrait.txt
 
 usage() {
     sed 's/^ *//;/^$/d' <<<'
@@ -41,15 +38,7 @@ usage() {
         -g          Launch website.
     '
 }
-
-# parse CLI
-while getopts "hg" opt; do
-    case ${opt} in
-        h)  usage && exit 0;;
-        g)  make gui.html && open gui.html && exit 0;;
-        \?) echo "Bad option: -${OPTARG}" && usage && exit 1;;
-    esac
-done
+for opt in "$@"; do [[ "${opt}" = "-h" ]] &amp;&amp; usage; done
 
 # launch repl or compile and launch website.
 stef_shell \

@@ -39,7 +39,7 @@
 pre {
   margin: 0;
   font-family: IosevkaSlab, "Courier New", Courier, monospace;
-  font-size: 0.75em;
+  font-size: 1em;
   color: rgb(203, 203, 203);
 }
 
@@ -50,6 +50,7 @@ pre {
 
 .important-comment {
   color: rgb(34, 71, 29);
+  font-style: normal;
 }
 
 .const {
@@ -59,7 +60,8 @@ pre {
 
 .str {
   /* color: rgb(41, 165, 159); */
-  color: rgb(252, 166, 209);
+  /* color: rgb(252, 166, 209); */
+  color: rgb(255, 79, 167);
 }
 
 a {
