@@ -6,6 +6,8 @@
     -->
     <!-- <script type="text/javascript" src="http://livejs.com/live.js"></script> -->
     <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- ios safari viewport for proper scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Stefan Trklja Countryman</title>
   </head>
   <body>
@@ -36,10 +38,11 @@ usage() {
 BIO: stc.sh [-h]</span></pre>
 
     <span class='str'>
-      <h2>
+      <h1>
         OVERVIEW<br/>
-        --------
-      </h2>
+        ========
+      </h1>
+
       <p>
         I'm a physics Ph.D. candidate at Columbia University in 
         <a href="http://geco.markalab.org">Szabolcs Marka's group</a> working
@@ -51,27 +54,11 @@ BIO: stc.sh [-h]</span></pre>
         LIGO's timing system hardware and diagnostic software as well as
         education and outreach.
       </p>
-      <h2>
-        EARLY PHD RESEARCH: LIGO TIMING SYSTEM<br/>
-        --------------------------------------
-      </h2>
 
-      <p>
-        At the beginning of my Ph.D., I resumed my undergraduate work on
-        LIGO's timing system. I developed diagnostic systems and software to
-        ensure the timing system's reliability. This involved developing
-        remote-work tools, devops methods (like virtual-machine images),
-        <a href="https://github.com/stefco/geco_channels">installation</a> documentation, maintenance <a href="https://github.com/stefco/geco_timing_checklists">procedures</a>,
-        and documentation that enabled timing system supervision from NYC.
-        Thanks in large part to these efforts, my group has maintained the
-        timing systems at both LIGO sites (this is no small accomplishment;
-        the Columbia group is the only group that manages and maintains
-        mission-critical LIGO hardware from off-site. The timing system has
-        flawlessly through the Advanced LIGO era, enabling precise event
-        reconstruction and source localization in support of LIGO's historic,
-        Nobel-prize-winning detections. Japan's KAGRA GW detector will also
-        rely on our proven timing system.
-      </p>
+      <h1>
+        RESEARCH<br/>
+        ========
+      </h1>
 
       <h2>
         LATE PHD RESEARCH: GW/NEUTRINO MULTI-MESSENGER PIPELINE<br/>
@@ -96,7 +83,7 @@ BIO: stc.sh [-h]</span></pre>
         for all O2 triggers, including historic
         <a href="http://dx.doi.org/10.1103/PhysRevLett.119.161101">kilonova
         GW170817;</a> sub-threshold joint triggers overlapping with the
-      original 1-detector GW skymap were
+        original 1-detector GW skymap were
         <a href="https://gcn.gsfc.nasa.gov/gcn3/21508.gcn3">successfully
         distributed</a> and followed up by some EM
         partners, but improved GW skymap localizations showed a
@@ -154,6 +141,39 @@ BIO: stc.sh [-h]</span></pre>
         is linked above; some of the rest is spread across DCC, ArXiV,
         BitBucket, and my GitHub.)
       </p>
+
+      <h2>
+        UNDERGRAD & EARLY PHD RESEARCH: LIGO TIMING SYSTEM<br/>
+        --------------------------------------------------
+      </h2>
+
+      <p>
+        I started working with the Marka group as an undergraduate at Columbia.
+        During this time I contributed to the development of Advanced LIGO's
+        timing system, which my group was building from scratch to address
+        weaknesses in Initial LIGO's commercially-built timing system. I
+        debugged FPGA timing code; developed documentation and workflows for
+        assembly, firmware-flashing, and testing; and personally assembled,
+        tested, and shipped most of Advanced LIGO and KAGRA's timing system.
+      </p>
+
+      <p>
+        At the beginning of my Ph.D., I resumed my undergraduate work on
+        LIGO's timing system. I developed diagnostic systems and software to
+        ensure the timing system's reliability. This involved developing
+        remote-work tools, devops methods (like virtual-machine images),
+        <a href="https://github.com/stefco/geco_channels">installation</a> documentation, maintenance <a href="https://github.com/stefco/geco_timing_checklists">procedures</a>,
+        and documentation that enabled timing system supervision from NYC.
+        Thanks in large part to these efforts, my group has maintained the
+        timing systems at both LIGO sites (this is no small accomplishment;
+        the Columbia group is the only group that manages and maintains
+        mission-critical LIGO hardware from off-site. The timing system has
+        flawlessly through the Advanced LIGO era, enabling precise event
+        reconstruction and source localization in support of LIGO's historic,
+        Nobel-prize-winning detections. Japan's KAGRA GW detector will also
+        rely on our proven timing system.
+      </p>
+
     </span>
 
 <pre><span class='str'>OPTIONS:
@@ -208,11 +228,13 @@ print_version() {
 # stef_shell running on &#9708;SPRITE VER.2.21</span>
 __OTACON
 
+<!-- <span class='scroll-horizontal'> -->
 # old website deprecated, UI was too advanced for user tastes; click
 # through to see my take on the eclectic, rarely-updated professorial
 # website style.  There are actually some useful links in there as
 # well.
 # <a href="oldsite">old_website</a> --please-stop=true
+<!-- </span> -->
 </span>
 
 
