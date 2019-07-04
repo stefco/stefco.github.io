@@ -46,11 +46,11 @@ body {
 body, pre {
   font-family: IosevkaSlab, "Courier New", Courier, monospace;
   font-size: 1em;
+  color: rgb(203, 203, 203);
 }
 
 pre {
   margin: 0;
-  color: rgb(203, 203, 203);
 }
 
 h2, p {
@@ -65,8 +65,8 @@ h2 {
   font-weight: bold;
 }
 
-.scroll-horizontal {
-  overflow: scroll;
+.overflow-horizontal {
+  /* overflow-y: hidden; */
   max-width: 100vw;
   margin: 0;
   padding: 0;
@@ -158,7 +158,7 @@ img#portrait {
 
   img#portrait {
     width: 90vw;
-    max-width: 25em;
+    max-width: 28em;
     display: block;
     /* margin-left: auto; */
     /* margin-right: auto; */
