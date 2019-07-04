@@ -33,89 +33,130 @@
 
 usage() {
     cat &lt;&lt;&lt;<span class='str'>'
-<a name=bio></a>
-BIO: stc.sh [-h]
+BIO: stc.sh [-h]</span></pre>
 
-OVERVIEW
---------
+    <span class='str'>
+      <h2>
+        OVERVIEW<br/>
+        --------
+      </h2>
+      <p>
+        I'm a physics Ph.D. candidate at Columbia University in 
+        <a href="http://geco.markalab.org">Szabolcs Marka's group</a> working
+        on multi-messenger astrophysics (MMA) using gravitational waves (GW)
+        and high energy neutrinos. I wrote and maintan
+        <a href='http://multimessenger.science'>LLAMA</a>, a cutting-edge MMA
+        search pipeline and software framework implementing the world's first
+        GW+neutrino online search pipeline. I have also worked extensively on
+        LIGO's timing system hardware and diagnostic software as well as
+        education and outreach.
+      </p>
+      <h2>
+        EARLY PHD RESEARCH: LIGO TIMING SYSTEM<br/>
+        --------------------------------------
+      </h2>
 
-I'm a physics Ph.D. candidate at Columbia University in <a href="http://geco.markalab.org">Szabolcs</a>
-<a href="http://geco.markalab.org">Marka's group</a> working on multi-messenger astrophysics (MMA) using
-gravitational waves (GW) and high energy neutrinos. I wrote and
-maintan <a href='http://multimessenger.science'>LLAMA</a>, a cutting-edge MMA software framework implementing
-the world's first GW+neutrino online search pipeline. I have also
-worked extensively on LIGO's timing system hardware and diagnostic
-software as well as education and outreach.
+      <p>
+        At the beginning of my Ph.D., I resumed my undergraduate work on
+        LIGO's timing system. I developed diagnostic systems and software to
+        ensure the timing system's reliability. This involved developing
+        remote-work tools, devops methods (like virtual-machine images),
+        <a href="https://github.com/stefco/geco_channels">installation</a> documentation, maintenance <a href="https://github.com/stefco/geco_timing_checklists">procedures</a>,
+        and documentation that enabled timing system supervision from NYC.
+        Thanks in large part to these efforts, my group has maintained the
+        timing systems at both LIGO sites (this is no small accomplishment;
+        the Columbia group is the only group that manages and maintains
+        mission-critical LIGO hardware from off-site. The timing system has
+        flawlessly through the Advanced LIGO era, enabling precise event
+        reconstruction and source localization in support of LIGO's historic,
+        Nobel-prize-winning detections. Japan's KAGRA GW detector will also
+        rely on our proven timing system.
+      </p>
 
-EARLY PHD RESEARCH: LIGO TIMING SYSTEM
---------------------------------------
+      <h2>
+        LATE PHD RESEARCH: GW/NEUTRINO MULTI-MESSENGER PIPELINE<br/>
+        -------------------------------------------------------
+      </h2>
 
-At the beginning of my Ph.D., I resumed my undergraduate work on
-LIGO's timing system. I developed diagnostic systems and software to
-ensure the timing system's reliability. This involved developing
-remote-work tools, devops methods (like virtual-machine images),
-<a href="https://github.com/stefco/geco_channels">installation</a> documentation, maintenance <a href="https://github.com/stefco/geco_timing_checklists">procedures</a>,
-and documentation that enabled timing system supervision from NYC.
-Thanks in large part to these efforts, my group has maintained the
-timing systems at both LIGO sites (this is no small accomplishment;
-the Columbia group is the only group that manages and maintains
-mission-critical LIGO hardware from off-site. The timing system has
-flawlessly through the Advanced LIGO era, enabling precise event
-reconstruction and source localization in support of LIGO's historic,
-Nobel-prize-winning detections. Japan's KAGRA GW detector will also
-rely on our proven timing system.
+      <p>
+        In the late Initial LIGO and early (O1) Advanced LIGO eras, my team
+        spearheaded the first GW/neutrino offline
+        <a href="http://arxiv.org/abs/1112.1140">searches</a>. During aLIGO's
+        second observing run (O2), I 
+        <a href="http://arxiv.org/abs/1901.05486">took their method online</a>
+        by creating a software framework,
+        <a href="http://multimessenger.science/">LLAMA</a>
+        (Low-Latency Algorithm for Multi-messenger Astrophysics), for
+        conducting this GW/neutrino search and
+        disseminating results in low-latency. LLAMA was the world's first
+        fully-automated low-latency GW/neutrino search pipeline and the first
+        automated GW follow-up search to include spatial priors in its
+        calculations. It proved to be highly reliable and was regularly the
+        fastest GW follow-up search to run during O2. Follow-up was performed
+        for all O2 triggers, including historic
+        <a href="http://dx.doi.org/10.1103/PhysRevLett.119.161101">kilonova
+        GW170817;</a> sub-threshold joint triggers overlapping with the
+      original 1-detector GW skymap were
+        <a href="https://gcn.gsfc.nasa.gov/gcn3/21508.gcn3">successfully
+        distributed</a> and followed up by some EM
+        partners, but improved GW skymap localizations showed a
+        non-coincidence. The LLAMA framework was also used during O2 to run
+        critical diagnostic checks of LIGO's timing system. It processed
+        public triggers and demonstrated the ability to process LIGO
+        sub-threshold triggers as well (though actual significance and
+        plotting steps could not performed on sub-threshold triggers without
+        code review).  I used an advanced architecture, cloud-hosting
+        solutions, and other advanced devops practices (which are only now
+        becoming standard practice in MMA efforts) to achieve its exceptional
+        performance.
+      </p>
 
-LATE PHD RESEARCH: GW/NEUTRINO MULTI-MESSENGER PIPELINE
--------------------------------------------------------
+      <p>
+        For O3, my team and I developed
+        <a href="http://arxiv.org/abs/1810.11467">an improved Bayesian
+        significance calculation</a> for our pipeline that uses other
+        astrophysical source data to boost sensitivity. This search method
+        relies on a general Bayesian odds ratio which can be readily extended
+        to other messenger types and 3+ detectors. During this time, I also
+        added extensive reliability and performance improvements and wrote a
+        highly performant multi-resolution HEALPix math library to ensure that
+        LLAMA could run quickly and reliably with arbitrary
+        spatial-prior-motivated core significance calculations. This was done
+        to ensure that the new Bayesian method would work for GW/neutrino
+        searches as well as any extensions added during O3. LLAMA has been
+        running with the new code during O3, regularly finishing in less than a
+        minute from GW trigger generation time (though IceCube result
+        dissemination time has been longer due to humans-in-the-loop).
+      </p>
 
-In the late Initial LIGO and early (O1) Advanced LIGO eras, my team
-spearheaded the first GW/neutrino offline searches. During aLIGO's
-second observing run (O2), I took their method online by creating a
-software framework, LLAMA, for conducting this GW/neutrino search and
-disseminating results in low-latency. LLAMA was the world's first
-fully-automated low-latency GW/neutrino search pipeline and the first
-automated GW follow-up search to include spatial priors in its
-calculations. It proved to be highly reliable and was regularly the
-fastest GW follow-up search to run during O2. Follow-up was performed
-for all O2 triggers, including historic kilonova GW170817;
-sub-threshold joint triggers overlapping with the original 1-detector
-GW skymap were successfully distributed and followed up by some EM
-partners, but improved GW skymap localizations showed a
-non-coincidence. The LLAMA framework was also used during O2 to run
-critical diagnostic checks of LIGO's timing system. It processed
-public triggers and demonstrated the ability to process LIGO
-sub-threshold triggers as well (though actual significance and
-plotting steps could not performed on sub-threshold triggers without
-code review).  I used an advanced architecture, cloud-hosting
-solutions, and other advanced devops practices (which are only now
-becoming standard practice in MMA efforts) to achieve its exceptional
-performance.
+      <p>
+        Throughout this time, I gained highly extensive expertise in software
+        development/operations methods and and astrophysics infrastructure by
+        creating software tools in support of my entire team's scientific
+        goals (many of these tools can be found in <a href="https://github.com/stefco/geco_data">these</a> <a href="https://github.com/stefco/geco_plots">three</a> <a href="https://github.com/stefco/geco_channels">repositories</a>).
+        I developed advanced software for data retrieval, caching, validating,
+        cleaning, and formatting, all highly non-trivial tasks due to LIGO's
+        large data volumes and limited infrastructure. This also required
+        developing <a href="https://github.com/stefco/geco_vm">virtual</a> <a href="https://github.com/stefco/ligo-vm">machines</a>, cloud-hosted images, provisioning
+        <a href="https://github.com/stefco/geco_env">scripts</a>, and <a href=http://multimessenger.science/">extensive</a> <a href="https://github.com/stefco/geco_docs">documentation</a> to cope with the tremendous
+        operational complexity of using constantly-changing experimental (in
+        all senses of the word) scientific libraries with limited support and
+        documentation.  My teammate Rainer Corley and I extensively documented
+        the photodiode layout of the Interferometer Sensing and Control (ISC)
+        system (a crucial susbsytem used for scientific data collection and
+        interferometer control) and <a href="https://github.com/stefco/isc">created</a> an interactive <a href="http://isc-ligo.multimessenger.science">installation map</a>
+        showing the layout and operation of the whole system. I many other
+        contributions to detector operations, like making useful LIGO tools
+        <a href="https://github.com/stefco/macports-ports">available on MacPorts</a> and adding control interfaces to LIGO's
+        EPICS/MEDM industrial control system. I also used my technical
+        expertise to make modest non-astrohysics contributions to to my
+        group's <a href="https://github.com/stefco/mousewalker">public health</a> efforts. (Much of my publically-available work
+        is linked above; some of the rest is spread across DCC, ArXiV,
+        BitBucket, and my GitHub.)
+      </p>
+    </span>
 
-Throughout this time, I gained highly extensive expertise in software
-development/operations methods and and astrophysics infrastructure by
-creating software tools in support of my entire team's scientific
-goals (many of these tools can be found in <a href="https://github.com/stefco/geco_data">these</a> <a href="https://github.com/stefco/geco_plots">three</a> <a href="https://github.com/stefco/geco_channels">repositories</a>).
-I developed advanced software for data retrieval, caching, validating,
-cleaning, and formatting, all highly non-trivial tasks due to LIGO's
-large data volumes and limited infrastructure. This also required
-developing <a href="https://github.com/stefco/geco_vm">virtual</a> <a href="https://github.com/stefco/ligo-vm">machines</a>, cloud-hosted images, provisioning
-<a href="https://github.com/stefco/geco_env">scripts</a>, and <a href=http://multimessenger.science/">extensive</a> <a href="https://github.com/stefco/geco_docs">documentation</a> to cope with the tremendous
-operational complexity of using constantly-changing experimental (in
-all senses of the word) scientific libraries with limited support and
-documentation.  My teammate Rainer Corley and I extensively documented
-the photodiode layout of the Interferometer Sensing and Control (ISC)
-system (a crucial susbsytem used for scientific data collection and
-interferometer control) and <a href="https://github.com/stefco/isc">created</a> an interactive <a href="http://isc-ligo.multimessenger.science">installation map</a>
-showing the layout and operation of the whole system. I many other
-contributions to detector operations, like making useful LIGO tools
-<a href="https://github.com/stefco/macports-ports">available on MacPorts</a> and adding control interfaces to LIGO's
-EPICS/MEDM industrial control system. I also used my technical
-expertise to make modest non-astrohysics contributions to to my
-group's <a href="https://github.com/stefco/mousewalker">public health</a> efforts. (Much of my publically-available work
-is linked above; some of the rest is spread across DCC, ArXiV,
-BitBucket, and my GitHub.)
-
-OPTIONS:
+<pre><span class='str'>OPTIONS:
 -h          Print this help string.
 '</span>
     exit 0
