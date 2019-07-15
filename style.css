@@ -49,7 +49,7 @@ body, pre {
   /* color: black; */
 }
 
-body.bg-text, pre.bg-text {
+body.bg-text, pre.bg-text, body.fortunefile blockquote::before {
   color: rgb(203, 203, 203);
 }
 
