@@ -66,6 +66,10 @@ blockquote {
   font-style: italic;
 }
 
+blockquote em {
+  font-style: normal;
+}
+
 ul {
   list-style-type: none;
 }
@@ -76,6 +80,24 @@ ul > li {
 
 ul > li:before {
   content: "- ";
+}
+
+cite::before {
+  content: "--";
+}
+
+body.fortunefile blockquote {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+body.fortunefile blockquote::before {
+  content: "%\A";
+  white-space: pre;
+}
+
+blockquote footer {
+  text-align: right;
 }
 
 h1, h2 {
