@@ -86,6 +86,14 @@ cite::before {
   content: "--";
 }
 
+cite {
+  font-style: normal;
+}
+
+cite em {
+  font-style: italic;
+}
+
 body.fortunefile blockquote {
   margin-top: 0;
   margin-bottom: 0;
