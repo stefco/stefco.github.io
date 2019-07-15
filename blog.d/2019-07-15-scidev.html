@@ -1,22 +1,23 @@
 <!doctype html>
 <html>
   <head>
-    <title>Stefblog -- devops for scientists</title>
+    <title>Stefblog -- DevOps for Scientists</title>
     <link rel="stylesheet" type="text/css" href="/style.css">
   </head>
   <body>
     <p>
-    devops for scientists<br/>
+    DEVOPS FOR SCIENTISTS<br/>
     ---------------------
     </p>
 
     <p>
-    <em>2019/07/15</em>
+    [2019/07/15] [<a href="..">home</a>] [<a href=".">blogs</a>]
     </p>
 
     <p>
     Something that surprises me about physicists is that many of us don't
-    appreciate that good DevOps can massively improve our scientific output
+    appreciate that good <a href="https://en.wikipedia.org/wiki/DevOps">DevOps
+    </a> can massively improve our scientific output
     with relatively little extra work. For anything other than throwaway
     scripts, proper DevOps lets you:
     </p>
@@ -48,14 +49,29 @@
     </p>
 
     <ul>
-      <li>Git for version control</li>
-      <li>Linux environmental configuration</li>
-      <li>Bash for scripting (it's ugly, but you need it!)</li>
-      <li>Unit testing frameworks</li>
-      <li>Package management frameworks</li>
-      <li>Docker</li>
-      <li>Cloud infrastructure</li>
-      <li>Databases</li>
+      <li><a href="https://git-scm.com">Git</a> for version control</li>
+      <li><a href="https://en.wikipedia.org/wiki/Linux">Linux</a> environmental
+        configuration</li>
+      <li><a href="https://www.python.org">Python</a> for serious data analysis
+        (the lingua franca of physics work with enough library support and
+        general power to do everything reliably besides the hardest
+        computational simulations; don't bother with C unless you need to)</li>
+      <li><a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">Bash</a>
+        for scripting (it's ugly, but you need it!)</li>
+      <li>Unit testing frameworks (like 
+        <a href="https://pytest.org">pytest</a>)</li>
+      <li>Package management frameworks (like 
+        <a href="https://wiki.debian.org/Apt">apt</a>,
+        <a href="https://www.macports.org">MacPorts</a>, or
+        <a href="https://conda.io">Conda</a>)
+      </li>
+      <li><a href="http://docker.com">Docker</a> (for keeping track of the
+        environment in which code runs)</li>
+      <li>Cloud infrastructure (like 
+        <a href="http://digitalocean.com">DigitalOcean</a> or 
+        <a href="http://aws.amazon.com">AWS</a>)</li>
+      <li>Databases (like
+        <a href="https://www.postgresql.org">Postgres</a>)</li>
     </ul>
 
     <p>
@@ -102,29 +118,32 @@
     </p>
 
     <p>
-    This seems like hogwash to physicists, who at mostly only speak Blub
-    dialects (usually: MATLAB, python2.7, and C++). Fancy DevOps tools like
-    version control (why can't we just email code to each other?) or cloud
-    computing (we should use our allocated time on the school's supercomputer!)
-    sound like useless tools for tool-fetishists.
-    Of course, they are wrong: these tools exist for a reason, and while you
-    won't use most tools for every project, being ignorant about them means
-    you have to live with the limitations of Blub. (An immediate example: I
+    This seems like hogwash to physicists, who mostly speak Blub
+    dialects (usually: MATLAB, python2.7, and C++). To many physicists, fancy
+    DevOps tools like version control (<em>"why can't we just email code to
+    each other?"</em>) or cloud computing (<em>"we should use our allocated
+    time on the school's supercomputer!"</em>)
+    sound like useless tools for tool-fetishists.  Of course, they are wrong:
+    these tools exist for a reason, and while you won't use most of them for
+    every project, being ignorant about them means you have to live with the
+    limitations of your favorite Blub dialect. (An immediate example: I
     chose hand-coded HTML/CSS for this simple website, but my analysis pipeline
     control systems use Flask for interactivity; in both cases, the solution is
     efficient given the goal.) If you don't know that
     things can be better, you're obviously not going to stress about this, but
     ignorance is only bliss until you're banging your head against the wall
-    trying to run massive simulations at scale using software that only runs on
+    trying to run simulations at scale using software that only runs on
     your laptop.
     </p>
 
     <p>
     What's funny to me about all of this, though, is that physicists of all
-    people <em>absolutely should not be fine with this</em>. Wewere drawn to
-    physics because it's pretty. Keats was wrong in the general case about
-    beauty and truth being equivalent (a point made often by the late Patrick
-    X. Gallagher, one of my favorite math professors).
+    people <em>absolutely should not be fine with this</em>. We were drawn to
+    physics because it's pretty. 
+    <a href="https://www.poetryfoundation.org/poems/44477/ode-on-a-grecian-urn">
+      Keats was wrong</a> in the general case about beauty and truth being
+    equivalent (as one of my favorite math professors, the late Patrick X.
+    Gallagher, put it: Keats got lazy with this one).
     <em>However</em>, in physics, the truth is often at
     least describable by something beautiful, its beauty arising from
     simplicity and elegance of the language. There is a tradeoff, in the sense
@@ -146,8 +165,9 @@
     their work can at least help themselves and those they mentor by improving
     DevOps practices. It requires a
     <a href="https://etc.usf.edu/lit2go/42/moby-dick/671/chapter-23-the-lee-shore"/>
-      Bulkington-esque</a> attitude, though, to piloting your research
-    projects:
+      Bulkington-esque</a> reilience, though, to keep your research
+    projects afloat (please forgive my meager and quotidian shoehorning of this
+    sublime passage into a productivity metaphore):
     </p>
 
     <blockquote>
@@ -417,9 +437,11 @@
         features; at that point, you can refactor the storage solution to use
         an RDB. You can probably ignore NoSQL solutions: these were designed
         for companies like Facebook that process data volumes many orders of
-        magnitude beyond RDB management system (RDBMS) capabilities. If your PI
-        demands that you solve a problem that requires organized IO at scales
-        beyond what RDBMSs support, it's time to leave that group.</li>
+        magnitude beyond RDB management system (RDBMS) capabilities. Their
+        flexible nature also makes them good tools for prototyping
+        distributed systems, but if your PI demands that you solve a problem
+        that requires organized consistent IO at scales beyond what RDBMSs
+        support, it's time to leave that group running.</li>
     </ol>
 
     <p>

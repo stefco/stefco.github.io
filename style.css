@@ -70,6 +70,10 @@ ul {
   list-style-type: none;
 }
 
+ul > li {
+  text-indent: -1em;
+}
+
 ul > li:before {
   content: "- ";
 }
