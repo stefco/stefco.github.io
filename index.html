@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=490, initial-scale=0.86">
     <title>Stefan Trklja Countryman</title>
   </head>
-  <body>
+  <body class="bg-text">
     <pre><span class='comment'>#!/bin/bash
 # (c) Stefan Trklja Countryman, 2019
 # <span class='important-comment'>.&#9604;&#9604; &#183; &#9604;&#9604;&#9604;&#9604;&#9604;&#9604;&#9604;&#9604; .&#183;&#9604;&#9604;&#9604;                                     </span>
@@ -35,6 +35,9 @@
 <span class='const'>PHYS_DEPT</span>=<a href="https://physics.columbia.edu/people/profile/496">columbia-physics-dept</a>
 <span class='const'>PUBLICATIONS</span>=<a href="https://ui.adsabs.harvard.edu/search/fq=%7B!type%3Daqp%20v%3D%24fq_database%7D&fq_database=database%3A%20astronomy&q=author%3A(%22Countryman%2C%20Stefan%20T%22)&sort=date%20desc%2C%20bibcode%20desc&p_=0">pubs.html</a>
 <span class='const'>GITHUB</span>=<a href="https://github.com/stefco">stefco</a>
+<span class='const'>BITBUCKET</span>=<a href="https://bitbucket.org/stefancountryman/">stefancountryman</a>
+<span class='const'>HN</span>=<a href="https://news.ycombinator.com/user?id=stefco_">stefco_</a>
+<span class='const'>BLOG</span>=<a href="blog.d">blog.d</a>
 <span class='const'>PROJECTS</span>=<a href="projects.d">projects.d</a><!--<span class='const'>BLOGDIR</span>=<a href="blog.d">blog.d</a>--><!--<span class='const'>GOOD_CODE</span>=<a href="good_code.d">good_code.d</a>-->
 <span class='const'>PORTRAIT</span>=<a href="portrait.txt">portrait.txt</a>
 </div>
@@ -193,11 +196,14 @@ for opt in "$@"; do [[ "${opt}" = "-h" ]] &amp;&amp; usage; done
 <span class='comment'># launch repl or compile and launch website.</span>
 stef_shell \
     --github "${GITHUB}" \
+    --bitbucket "${BITBUCKET}" \
     --resume "${RESUME}" \
+    --blog "${BLOG}" \
     --dept "${PHYS_DEPT}" \
     --contact "${CONTACT}" \
     --portrait "${PORTRAIT}" \
     --projects "${PROJECTS}" \
+    --hn "${HN}" \
     --publications "${PUBLICATIONS}"
 
 <!-- otacon image https://www.online-toolz.com/tools/unicode-html-entities-convertor.php -->

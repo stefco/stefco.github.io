@@ -46,6 +46,10 @@ body {
 body, pre {
   font-family: IosevkaSlab, "Courier New", Courier, monospace;
   font-size: 1em;
+  /* color: black; */
+}
+
+body.bg-text, pre.bg-text {
   color: rgb(203, 203, 203);
 }
 
@@ -53,8 +57,21 @@ pre {
   margin: 0;
 }
 
-h2, p {
+h2, p, li {
   max-width: 50em;
+}
+
+blockquote {
+  max-width: 40em;
+  font-style: italic;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul > li:before {
+  content: "- ";
 }
 
 h1, h2 {

@@ -1,0 +1,439 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Stefblog -- devops for scientists</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+  </head>
+  <body>
+    <p>
+    devops for scientists<br/>
+    ---------------------
+    </p>
+
+    <p>
+    <em>2019/07/15</em>
+    </p>
+
+    <p>
+    Something that surprises me about physicists is that many of us don't
+    appreciate that good DevOps can massively improve our scientific output
+    with relatively little extra work. For anything other than throwaway
+    scripts, proper DevOps lets you:
+    </p>
+
+    <ul>
+      <li>Gracefully go from prototype to production</li>
+      <li>Do reproducible science</li>
+      <li>Make it much easier for you and collaborators to reuse code</li>
+      <li>Increase your project's resiliency against bugs and changes in
+        others' code</li>
+      <li>Add new features quickly</li>
+      <li>Debug easily</li>
+      <li>Handoff projects instead of abandoning them</li>
+      <li>Achieve complex architectures that are sometimes necessary for
+        difficult scientific problems</li>
+      <li>Free yourself from the worst parts of maintaining these systems</li>
+    </ul>
+
+    <p>
+    There is one superficially (though invalid, as I'll demonstrate) argument
+    for not consciously choosing proper DevOps paradigms for scientific
+    computing: it takes a lot of time to learn, and most physicists--through a
+    failure of our education system--are starting from scratch when they begin
+    their PhDs. By scratch, I don't mean zero DevOps experience; I mean
+    close-to-zero <em>programming</em> experience. Many people I've met say
+    that a student has too much to learn straight away, and they consequently
+    don't have time to learn some of the tools that are needed for both the
+    development and operations aspects of good DevOps:
+    </p>
+
+    <ul>
+      <li>Git for version control</li>
+      <li>Linux environmental configuration</li>
+      <li>Bash for scripting (it's ugly, but you need it!)</li>
+      <li>Unit testing frameworks</li>
+      <li>Package management frameworks</li>
+      <li>Docker</li>
+      <li>Cloud infrastructure</li>
+      <li>Databases</li>
+    </ul>
+
+    <p>
+    Of course, these people are right that you <em>cannot</em> learn this stuff
+    <em>in-and-out</em> in a week, or a year, or even in the time it takes to
+    do your Ph.D.; your toolchain might also not be amenable to these or other
+    DevOps tools. But the thing is, you could say the exact same thing about
+    every other aspect of physics research: you start from zero and need to
+    start being productive while being hopelessly ignorant of the full context.
+    Grad students have been figuring this out for
+    centuries; throwing some code in with the math and physics formulae and
+    hardware engineering skills is no-less reasonable. On the contrary, good
+    development and operations practices actually factor out the problem nicely
+    and make it <em>easier</em> to learn how to code! <em>Especially</em> when
+    I was first starting, I learned far more from DevOps adepts' source code
+    repostitories than I did from the scattered, mangled, "simpler" code I
+    found elsewhere.  So why do so many physicists view DevOps as some sort of
+    capitalist-tech-decadence that nobody outside of software engineering would
+    care about or benefit from?
+    </p>
+
+    <p>
+    <em>Because they don't know anything about it.</em>
+    </p>
+
+    <p>
+    Paul Graham has a <a href="http://www.paulgraham.com/avg.html">great blog
+      post</a> from two decades ago where he talks about the advantage you can
+    create for yourself by using a powerful programming language (his choice
+    was LISP, but the point is a general one about tooling). In his essay, he
+    postulates a fictional language called Blub with a mediocre set of
+    features. Because you only know Blub, you don't understand the fancy
+    features of other languages/tools, and they sound like beautiful but
+    useless masturbation by people who don't care about <em>getting things
+      done</em>. In other words, you don't just use Blub: you <em>think
+      Blub</em>. It's Sapir-Whorf for code in the most rigorous sense: words
+    with hyper-specific meanings <em>cannot be used</em> unless you understand
+    them deeply, but if this condition is met, your understanding of the world
+    changes deeply. If you know something better than Blub, you don't just use
+    it's nice features: you think <em>in terms</em> of those features, and it
+    makes your coding better across the board. Maybe you still use Blub 90% of
+    the time, but you use it more adeptly, you understand its limitations, and
+    you don't use it when you need something better.
+    </p>
+
+    <p>
+    This seems like hogwash to physicists, who at mostly only speak Blub
+    dialects (usually: MATLAB, python2.7, and C++). Fancy DevOps tools like
+    version control (why can't we just email code to each other?) or cloud
+    computing (we should use our allocated time on the school's supercomputer!)
+    sound like useless tools for tool-fetishists.
+    Of course, they are wrong: these tools exist for a reason, and while you
+    won't use most tools for every project, being ignorant about them means
+    you have to live with the limitations of Blub. (An immediate example: I
+    chose hand-coded HTML/CSS for this simple website, but my analysis pipeline
+    control systems use Flask for interactivity; in both cases, the solution is
+    efficient given the goal.) If you don't know that
+    things can be better, you're obviously not going to stress about this, but
+    ignorance is only bliss until you're banging your head against the wall
+    trying to run massive simulations at scale using software that only runs on
+    your laptop.
+    </p>
+
+    <p>
+    What's funny to me about all of this, though, is that physicists of all
+    people <em>absolutely should not be fine with this</em>. Wewere drawn to
+    physics because it's pretty. Keats was wrong in the general case about
+    beauty and truth being equivalent (a point made often by the late Patrick
+    X. Gallagher, one of my favorite math professors).
+    <em>However</em>, in physics, the truth is often at
+    least describable by something beautiful, its beauty arising from
+    simplicity and elegance of the language. There is a tradeoff, in the sense
+    that you need to organize and refactor your mathematical tools to see the
+    simplicity of the
+    physical forms you wish to describe, but we do it anyway, precisely because
+    it gives us both the tools to do hard problems and the intuition to reason
+    about things simply. Physicists know that abstractions are useful, but for
+    some reason we draw a boundary when those abstractions are outside the ken
+    of Mathematics and Physics departments. We limit ourselves to the software
+    version of Newton's Second Law, <em>F=ma</em>, cutting ourself off from any
+    hope of solving truly hard problems. And because we willfully remain
+    ignorant, we undermine our chances at improving.
+    </p>
+
+    <p>
+    I don't think there's an obvious solution for this cultural rot, but
+    individual reasearchers who rely on any non-trivial amount of code to do
+    their work can at least help themselves and those they mentor by improving
+    DevOps practices. It requires a
+    <a href="https://etc.usf.edu/lit2go/42/moby-dick/671/chapter-23-the-lee-shore"/>
+      Bulkington-esque</a> attitude, though, to piloting your research
+    projects:
+    </p>
+
+    <blockquote>
+      With all her might she crowds all sail off shore; in so doing, fights
+      'gainst the very winds that fain would blow her homeward; seeks all the
+      lashed sea's landlessness again; for refuge's sake forlornly rushing into
+      peril; her only friend her bitterest foe!
+
+      <br/><br/>
+
+      Know ye now, Bulkington? Glimpses do ye seem to see of that mortally
+      intolerable truth; that all deep, earnest thinking is but the intrepid
+      effort of the soul to keep the open independence of her sea; while the
+      wildest winds of heaven and earth conspire to cast her on the treacherous,
+      slavish shore?
+
+      <br/><br/>
+
+      But as in landlessness alone resides highest truth, shoreless, indefinite
+      as God- so better is it to perish in that howling infinite, than be
+      ingloriously dashed upon the lee, even if that were safety! For worm-like,
+      then, oh! who would craven crawl to land! Terrors of the terrible! is all
+      this agony so vain? Take heart, take heart, O Bulkington! Bear thee grimly,
+      demigod! Up from the spray of thy ocean-perishing- straight up, leaps thy
+      apotheosis!
+    </blockquote>
+
+    <p>
+    This is pretty much what it feels like to do software development in
+    science (of course, one hopes for an apotheosis free from ocean-perishing).
+    Our general ignorance and accompanying disdain for non-mathematical
+    technologies (and, to be frank, our
+    <a href="https://xkcd.com/793/">often hubristic</a> approach to other
+    disciplines) leads us to undervalue DevOps technologies as "engineering", a
+    slur in the mouth of a physicist. This is in spite of the fact that our
+    code and deployment infrastructure (or lack thereof) is what does the
+    heavy-lifting in much of our research: all arguments of practicality aside,
+    if we don't understand the mechanism that produces our results, then we are
+    not doing our job as physicists. Nonetheless, you won't see people get
+    academic credit for authoring open-source scientific libraries that do the
+    work of 10 research groups; you'll only get credit for such an effort if
+    you can get papers out of it, and nobody will understand your work anyway,
+    so you won't get much credit for how elegant and wonderful it is.
+    </p>
+
+    <p>
+    We're also all overworked or overambitious (same thing but self-imposed),
+    creating further pressure to cut all corners possible. In my experience,
+    the benefits of good DevOps mentioned above actually <em>reduce</em> your
+    workload while improving your output, but this is not a well-known fact,
+    and in any case, knowing DevOps just makes you smarter about picking
+    corners to cut. This means even the best physicists and scientific
+    programmers working in physics can't always do everything the <em>best</em>
+    way possible (a truism for any human endeavor, but especially harsh as
+    applied in the sciences).
+    </p>
+
+    <p>
+    Furthermore, physics academia's fundamental mode of operation runs counter
+    to good production development practices. Academia is like a large
+    collection of startup incubators, trying new things and failing fast, but
+    because of our grant-based funding model and hyper-specialization, we have
+    a very hard time transitioning from minimum-viable-product (MVP) to
+    production-grade code when one of our genuinely good ideas acheives
+    traction. It's a bit terrifying to realize how much mission-critical
+    scientific code is MVP abandonware written a decade ago by a 22-year old
+    who learned python for the first time a year prior to writing it (and who
+    has forgotten the entire architecture since getting her Ph.D. and going
+    into industry).
+    </p>
+
+    <p>
+    In short, the winds really are conspiring to blow us into the rocks (in the
+    same non-intentional emergent way that the literal winds do, of course),
+    dashing our scientific projects to pieces; you really do need to fight
+    against everyone else to do what's best for the entire community, keeping
+    your project away from infrastructural collapse, and you
+    need to do it strategically enough to get credit for it and persist in the
+    howling infinite of academia without perishing (what happens when you don't
+    publish, as the old adage goes). And since we're all weathering this awful
+    storm, cutting corners and fighting for the survival of our projects,
+    we have to deal with all of the rough edges in each other's scientific
+    coding projects. We're avoiding the rocks while trying not to crash into
+    each other in the gale. It's a miracle that anything gets done at all.
+    </p>
+
+    <p>
+    I've dealt with this in my own project, 
+    <a href="http://multimessenger.science">LLAMA</a>, by doing my best to
+    incorporate good practices starting from the most general/fundamental and
+    only learning/using new tools as needed. Of course, I look at other
+    projects both inside and outside of science for inspiration, but I think
+    hard about the simplest way to do things before I start throwing in new
+    features (LLAMA's design requirements are already onerous enough). I can
+    recommend this approach in good conscience to any other physicist (read:
+    programming neophyte) because it's worked very well for me to cut corners
+    <em>deliberately and strategically</em> while designing an overall
+    strategy/architecture/feature list that allows me to <em>stop</em> cutting
+    specific corners when the time comes.
+    </p>
+
+    <p>
+    One example of this approach is the computing model of LLAMA. It would be
+    very useful to be able to do burst-computing analyses of new astrophysical
+    multi-messenger sources as data comes in. This requires having a
+    supercomputer reserved for your full-time use (not feasible if your budget
+    isn't in the tens of millions) or, alternatively, using some kind of
+    spot-instance allocation strategy to raise a mountain of computation (and
+    let it die seconds later once the problem is solved).
+    </p>
+
+    <p>
+    This architecture has plenty of immediately obvious real-life uses for
+    multi-messenger astrophysics (MMA). If you can run an analysis in
+    low-latency and detect a joint gravitational wave/EM source, for example,
+    you can quickly follow it up with other telescopes, like we did with 
+    <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.119.161101">
+      the first direct kilonova observation.</a>
+    Though the gamma-ray detection localization wasn't good enough to really
+    aid counterpart searches for that event (GW170817), there are other types
+    of candidates (like GW+neutrinos, my current and past project) for which
+    this rapid localization would be a huge improvement. And if you can do
+    really hard things like estimate the GW source parameters before merger
+    (e.g. whether you're looking at a binary neutron star merger, which is
+    likely to emit detectable light if it's close enough), you can try to get
+    fast-slewing telescopes pointing on source at merger time. Not to mention
+    that burst processing would let you do more clever things with your
+    statistics (getting better sensitivity) in low-latency as well. So stuff
+    that makes this easier is really exciting from an experimental physics
+    perspective.
+    </p>
+
+    <p>
+    This is, amazingly, a completely feasible architecture for a pipeline
+    maintained by a small team (read: me) thanks to the continuum
+    approximation that is the commercial Cloud, with extreme low-latencies
+    possible through serverless architectures like Amazon's AWS Lambda system.
+    I'm transitioning my pipeline to be able to use these sorts of serverless
+    architectures, but the main reason I can't do this trivially (e.g. my
+    laptop fires 10,000 Lambda requests when it needs to do some real thinking
+    and then reduces the results) <em>is another DevOps problem:</em> I need to
+    use a lot of monolithic, project-wide libraries (read: minimal python
+    installs of many gigabytes), far beyond Lambda's layer-size limitations.
+    </p>
+
+    <p>
+    My solution is to split up my own monolithic architecture
+    so that subcomponents can run in limited environments, allowing some steps
+    in my pipeline DAG to be implemented on Lambda; this is the direction I'm
+    moving in (it also has certain development advantages). That said, leaving
+    my own monolith behind requires some careful planning. For one thing,
+    reproducibility is easier if you only need to track a single code version;
+    it's more work to have a fully-reproducible infrastructure (something I'm
+    working on with versioned containers, detailed file-generation metadata,
+    and automated build/test processes). It's also sometimes necessary to
+    hot-fix things in production: this is science, so the APIs I pull data from
+    are not versioned and are subject to breaking changes during production
+    with nothing more than a short email thread to announce them (I get
+    hundreds of emails a day from both major collaborations I'm in (LIGO and
+    IceCube), so tracking these changes is its own hell). This means being able
+    to develop and fix things extremely quickly is paramount, which is also
+    easier on a properly-factored monolith unless you have a proper
+    microservices architecture and deployment system. We also get crazy demands
+    for new features during production from other collaborators and scientists
+    that make my software development friends gasp.  And nobody understands
+    anything I do because documentation isn't prioritized, so I have to do all
+    this in a way that's maintainable and extensible by one person. (Seriously,
+    I need to fight to document and properly refactor/maintain my code
+    sometimes because people don't understand these tasks and, therefore,
+    obviously don't want to allocate time for them.)
+    </p>
+
+    <p>
+    This is all hard fundamentally because scientific software development is,
+    like I said, a gale of overworked developers and misaligned incentives
+    threatening to cast us on the treacherous, slavish shore. All of our code
+    has 1/3 the manpower it should, so we're all prioritizing ruthlessly with
+    varying degrees of success. Some people have done really amazing, inspiring
+    work using best-practices devops and the rest, and it's slowly getting
+    better in many spots, but the systemics of the dev environment means that
+    unless you're a 10x person, your scientific code is going to be pretty
+    rough around the edges. But even at the local level, DevOps can provide
+    massive benefits and even competitive advantage against the gale. I'm
+    cautiously optimistic that physics academia, which is eventually smart in
+    the way a distributed database can be eventually consistent (albeit much
+    more slowly), will improve.
+    </p>
+    
+    <p>
+    In the meantime, if you're a physicist working with code, you can start
+    reaping these benefits immediately. There's a lot to learn because the
+    status quo is so terrible. If you want a prioritized checklist of
+    topics/methods useful to the scientific developer, I recommend learning
+    things in roughly the following order:
+    </p>
+
+    <ol>
+      <li>Put all your code in a git repository and commit every update or
+        change to that repository. Never ever email code again unless it's a
+        throwaway command or example. Use git-lfs if you need to store large
+        files alongside code.</li>
+      <li>Store your data as HDF5 or JSON. These are standard formats with
+        excellent support in many languages and frameworks, and you will have
+        an easy time writing code to work with these formats. Sometimes you'll need to
+        use a weird legacy format, like FITS files for astronomical images, but
+        in general HDF5 (for numerical data) and JSON (for heirarchical
+        human-readable data) should be your defaults.
+        Giant ASCII files with ad-hoc structures are a mistake that the physics
+        community perenially reinflicts upon itself; save yourself the trouble.
+        (Exception: there's not much data, it's being used in one place, and
+        you *really* need it to be easily human readable.)
+      <li>Start using Anaconda or pip's virtual environments to install python
+        (or some other similar development environment tracking system for your
+        language of choice). Keep a list of all packages/libraries required by
+        each project in the source code repository mentioned above.</li>
+      <li>If at all possible, use UNIX environments; most DevOps tools rely on
+        it, and good practices are generally easier in it (and very
+        well-documented thanks to its popularity). This is easier than ever:
+        you can do this on Windows with the Windows Subsystem for Linux; on
+        MacOS, you can use the command line (since MacOS is a BSD UNIX
+        variant). You can also run an actual Linux virtual machine (Debian and
+        Ubuntu are great Linux distributions to start with)</li>
+      <li>If you need to create a server, don't use hardware; use cloud
+        computing providers like DigitalOcean, Amazon, Google, or Microsoft.
+        They are way cheaper, they can scale up or down as much as you need,
+        they are more reliable than your homemade server will ever be (I know,
+        I know, we all want an excuse to build a PC, but stop lying to yourself
+        about how smart it is), and they make backups and state snapshots easy.
+        On top of all of this, you can easily use scripts to both start as many
+        servers as you need *and* to setup servers so that they actually run
+        your code (and guess what: you can put those scripts in git
+        repositories, too!).</li>
+      <li>Once you're somewhat comfortable with UNIX system administration, you
+        can start using Docker to "containerize" your code. This is kind of
+        like having a virtual server, but you can run it anywhere (any of the
+        cloud providers above support Docker, and you can also run the images
+        on your laptop; virtual server snapshots, in contrast, are generally
+        only usable with the service provider you chose). It's also more
+        lightweight because Docker images only contain minimal userspace needed
+        for a specific application, reusing the underlying host's kernel
+        (thanks to virtualization advances, this doesn't make it much faster
+        than a true VM, but it does make the images smaller and make startup
+        times imperceptible for locally-stored images; I note pedantically that
+        at time of writing, Docker hosts on MacOS and Windows actually are just
+        host Linux VMs for Docker containers running on your local OS
+        environment as a daemon process, but this extra indirection has no
+        significant performance cost).</li>
+      <li>If you need to worry about complicated procedures storing large
+        amounts of data, or you're worried about data corruption, start
+        learning about relational databases (RDBs) like SQLite for small jobs
+        where the database can live on your computer or the powerful
+        server-based PostgresQL. (The more historically popular server-based
+        MySQL is more limited and offers no advantages;
+        unless you're writing a throwaway LAMP application, forget about it.
+        You can also ignore closed-source databases--their features and
+        performance are similar in the best cases, but your budget as a
+        scientist makes licensing them utterly foolish.)
+        Databases sound boring and scary to physicists, but they solve tons of
+        really hard and universal problems about storing data and maintaining
+        its consistency. If you want to run things in parallel, one of the
+        easiest things to do is just have a central database with all your data
+        and an arbitrary number of compute nodes that rely on the database to
+        tell them what work to do and then store their results consistently.
+        RDBs are overkill for most workflows, so just use regular old files
+        until, as the old adage warns, the requirements become complex enough
+        that your code is just a buggy reimplementation of an RDB with fewer
+        features; at that point, you can refactor the storage solution to use
+        an RDB. You can probably ignore NoSQL solutions: these were designed
+        for companies like Facebook that process data volumes many orders of
+        magnitude beyond RDB management system (RDBMS) capabilities. If your PI
+        demands that you solve a problem that requires organized IO at scales
+        beyond what RDBMSs support, it's time to leave that group.</li>
+    </ol>
+
+    <p>
+    This is a rough sketch for how to start, but it's close to the approach
+    I've successfully taken to solve hard technical problems. This is based on
+    a lot of thinking and actual scientific development experience, but of
+    ource you should take it with a grain of salt and read a bit about each of
+    these technologies before implementing them. Some people disagree with me
+    about some of these points, but in a scientific development context, I
+    think these are all pretty frequently true.
+    </p>
+
+    <p>
+    Good luck staying afloat.
+    </p>
+  </body>
+</html>
