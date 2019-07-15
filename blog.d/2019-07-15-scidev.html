@@ -11,7 +11,7 @@
     </p>
 
     <p>
-    [2019/07/15] [<a href="..">home</a>] [<a href=".">blogs</a>]
+    [Stef Countryman -- 2019/07/15] [<a href="..">home</a>] [<a href=".">blogs</a>]
     </p>
 
     <p>
@@ -41,11 +41,11 @@
     for not consciously choosing proper DevOps paradigms for scientific
     computing: it takes a lot of time to learn, and most physicists--through a
     failure of our education system--are starting from scratch when they begin
-    their PhDs. By scratch, I don't mean zero DevOps experience; I mean
-    close-to-zero <em>programming</em> experience. Many people I've met say
-    that a student has too much to learn straight away, and they consequently
-    don't have time to learn some of the tools that are needed for both the
-    development and operations aspects of good DevOps:
+    their Ph.D.s. By "scratch", I don't just mean zero DevOps experience; I
+    mean close-to-zero <em>programming</em> experience. Many people I've met
+    say that a student has too much to learn straight away, and they
+    consequently don't have time to learn some of the common tools that are
+    used for both the development and operations aspects of good DevOps:
     </p>
 
     <ul>
@@ -75,55 +75,67 @@
     </ul>
 
     <p>
-    Of course, these people are right that you <em>cannot</em> learn this stuff
-    <em>in-and-out</em> in a week, or a year, or even in the time it takes to
-    do your Ph.D.; your toolchain might also not be amenable to these or other
-    DevOps tools. But the thing is, you could say the exact same thing about
-    every other aspect of physics research: you start from zero and need to
-    start being productive while being hopelessly ignorant of the full context.
-    Grad students have been figuring this out for
+    Of course, these naysayers are right that you <em>cannot</em> learn this
+    stuff <em>in-and-out</em> in a week, or a year, or even in the time it
+    takes to do your Ph.D.; your toolchain might also not be amenable to these
+    or other DevOps tools, or you might never end up practically needing all of
+    them.  But the thing is, you could say the <em>exact same thing</em> about
+    every other type of expertise demanded by physics research: you start from
+    zero and need to start being productive while being hopelessly ignorant of
+    the full context. Grad students have been handling this challenge for
     centuries; throwing some code in with the math and physics formulae and
     hardware engineering skills is no-less reasonable. On the contrary, good
-    development and operations practices actually factor out the problem nicely
+    development and operations practices actually factor out problems nicely
     and make it <em>easier</em> to learn how to code! <em>Especially</em> when
-    I was first starting, I learned far more from DevOps adepts' source code
-    repostitories than I did from the scattered, mangled, "simpler" code I
-    found elsewhere.  So why do so many physicists view DevOps as some sort of
+    I was first starting, I learned far more from DevOps adepts' scientific
+    <a href="https://gwpy.github.io">source</a>
+    <a href="https://github.com/lpsinger/pygcn">code</a>
+    <a href="https://github.com/lpsinger/bayestar-skyloc-mdc">repostitories</a>
+    than I did from the scattered, mangled, "simpler" code I
+    found elsewhere. So why do so many physicists view DevOps as some sort of
     capitalist-tech-decadence that nobody outside of software engineering would
     care about or benefit from?
     </p>
 
     <p>
-    <em>Because they don't know anything about it.</em>
+    <em>Because most of them, even the ones who rely heavily on computation,
+      don't know what they're missing.</em>
     </p>
 
     <p>
-    Paul Graham has a <a href="http://www.paulgraham.com/avg.html">great blog
+    Paul Graham has a <a href="http://www.paulgraham.com/avg.html">blog
       post</a> from two decades ago where he talks about the advantage you can
     create for yourself by using a powerful programming language (his choice
     was LISP, but the point is a general one about tooling). In his essay, he
-    postulates a fictional language called Blub with a mediocre set of
-    features. Because you only know Blub, you don't understand the fancy
+    presents a fictional language called Blub with a mediocre set of
+    features. If you only know Blub, you don't understand the fancy
     features of other languages/tools, and they sound like beautiful but
-    useless masturbation by people who don't care about <em>getting things
-      done</em>. In other words, you don't just use Blub: you <em>think
-      Blub</em>. It's Sapir-Whorf for code in the most rigorous sense: words
+    useless masturbation by people who don't care about <em>getting work
+      done</em>. More precisely, you don't just use Blub: you <em>think
+      Blub</em>, and Blub's limitations become your own. It's
+    <a href="https://en.wikipedia.org/wiki/Linguistic_relativity">
+      Sapir-Whorf</a> for code in the most rigorous sense: words and concepts
     with hyper-specific meanings <em>cannot be used</em> unless you understand
     them deeply, but if this condition is met, your understanding of the world
-    changes deeply. If you know something better than Blub, you don't just use
+    deepens as well. If you know something better than Blub, you don't just use
     it's nice features: you think <em>in terms</em> of those features, and it
     makes your coding better across the board. Maybe you still use Blub 90% of
     the time, but you use it more adeptly, you understand its limitations, and
-    you don't use it when you need something better.
+    you don't use it when you need something better. This is the same reason we
+    learn powerful, advanced math to actually simplify our understanding of
+    physical laws.
     </p>
 
     <p>
-    This seems like hogwash to physicists, who mostly speak Blub
-    dialects (usually: MATLAB, python2.7, and C++). To many physicists, fancy
-    DevOps tools like version control (<em>"why can't we just email code to
-    each other?"</em>) or cloud computing (<em>"we should use our allocated
-    time on the school's supercomputer!"</em>)
-    sound like useless tools for tool-fetishists.  Of course, they are wrong:
+    When applied to development practices, however, this seems like hogwash to
+    physicists, who mostly speak Blub dialects. They might know their language
+    of choice (frequently: MATLAB, python2.7, or C++) passably well, but they
+    don't think of code as part of the same hollistic problem-solving
+    ecosystem that hosts Mathematics and Physics. To many physicists, even
+    basic DevOps tools like version control (<em>"why can't we just email code
+      to each other?"</em>) or cloud computing (<em>"we should use our
+      allocated time on the school's supercomputer!"</em>) often sound like
+    useless tools for tool-fetishists. Of course, they are wrong:
     these tools exist for a reason, and while you won't use most of them for
     every project, being ignorant about them means you have to live with the
     limitations of your favorite Blub dialect. (An immediate example: I
@@ -146,7 +158,9 @@
     Gallagher, put it: Keats got lazy with this one).
     <em>However</em>, in physics, the truth is often at
     least describable by something beautiful, its beauty arising from
-    simplicity and elegance of the language. There is a tradeoff, in the sense
+    simplicity and elegance of the language, as
+    <a href="http://www.damtp.cam.ac.uk/events/strings02/dirac/speach.html">
+      Dirac so eloquently mused</a>. There is a tradeoff, in the sense
     that you need to organize and refactor your mathematical tools to see the
     simplicity of the
     physical forms you wish to describe, but we do it anyway, precisely because
