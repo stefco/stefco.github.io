@@ -36,6 +36,9 @@
 <span class='const'>PUBLICATIONS</span>=<a href="https://ui.adsabs.harvard.edu/search/fq=%7B!type%3Daqp%20v%3D%24fq_database%7D&fq_database=database%3A%20astronomy&q=author%3A(%22Countryman%2C%20Stefan%20T%22)&sort=date%20desc%2C%20bibcode%20desc&p_=0">pubs.html</a>
 <span class='const'>GITHUB</span>=<a href="https://github.com/stefco">stefco</a>
 <span class='const'>BITBUCKET</span>=<a href="https://bitbucket.org/stefancountryman/">stefancountryman</a>
+<span class='const'>DOCKER</span>=<a href="https://hub.docker.com/u/stefco">stefco</a>
+<span class='const'>CONDA</span>=<a href="http://anaconda.org/stefco/">stefco</a>
+<span class='const'>LLAMA</span>=<a href="http://multimessenger.science">multimessenger.science</a>
 <span class='const'>LIGO_DATA_GRID</span>=<a href="https://ldas-jobs.ligo.caltech.edu/~stefan.countryman/">stefan.countryman</a>
 <span class='const'>DCC_DOCUMENTS</span>=<a href="https://dcc.ligo.org/cgi-bin/private/DocDB/ListBy?simple=1&authorid=4946&maxdocs=500&.submit=Author&autocompleter=Countryman%2C+Stefan">stefan.countryman</a>
 <span class='const'>HN</span>=<a href="https://news.ycombinator.com/user?id=stefco_">stefco_</a>
@@ -200,6 +203,9 @@ for opt in "$@"; do [[ "${opt}" = "-h" ]] &amp;&amp; usage; done
 stef_shell \
     --github "${GITHUB}" \
     --bitbucket "${BITBUCKET}" \
+    --conda "${CONDA}" \
+    --docker "${DOCKER}" \
+    --llama "${LLAMA}" \
     --resume "${RESUME}" \
     --blog "${BLOG}" \
     --dept "${PHYS_DEPT}" \
