@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Stefblog -- Minimally Painful Python Development</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+  </head>
+  <body>
+    <p>
+    MINIMALLY PAINFUL PYTHON DEVELOPMENT<br/>
+    ====================================
+    </p>
+
+    <p>
+    [Stef Countryman -- 2019/07/15] [<a href="..">home</a>] [<a href=".">blogs</a>]
+    </p>
+
+    <p>
+    This post is meant to help you quickly get a nice, maintainable python
+    environment up and running.
+    <strong>
+      You can ignore the explanations and just follow the instructions at
+      the end of each subsection (under TL;DR) if you just want to get going
+      quickly.
+    </strong>
+    </p>
+
+    <p>
+    MOTIVATION<br/>
+    ----------
+    </p>
+
+    <p>
+    Developing multiple python projects with arcane dependencies using the
+    naive approach (install one copy of python, <code>pip --install</code> a
+    bunch of packages by hand, lose track of which projects need which
+    packages, face a dependency conflict, suffer, despair) will ruin your
+    computer and your life.
+    When it comes to dependency management, packaging, writing extensions, and
+    even choosing an interpreter, a web search will show dozens of ways to do
+    the same thing, most of them obsolete, overwrought, unmaintainable, slow,
+    bug-ridden, inextensible, or otherwise terrible.
+    </p>
+
+    <p>
+    This presents a problem to the novice programmer, who has heard that python
+    is easy to learn and has many useful libraries that you can freely use,
+    and therefore starts a project without setting up a decent dev environment,
+    not realizing what horrors await them.
+    Fortunately, practices are improving somewhat, and with a bit of guidance,
+    managing python projects can be as forgiving to novice programmers as the
+    syntax of the code itself.
+    </p>
+
+    <p>
+    The aim of this post is to provide such a guide to my friends and
+    colleagues in a central place.
+    </p>
+
+    <p>
+    PICK AN INTERPRETER<br/>
+    -------------------
+    </p>
+
+    <p>
+    The first thing to do is to install an actual python interpreter.
+    Python is a scripting language, meaning that the programs are just text
+    files which are executed by a program called an <em>interpreter</em>.
+    The language itself changes roughly every year, so you will probably want
+    an interpreter that runs a recent version of the language, as well as the
+    ability to manage multiple versions (in case you find that certain of your
+    programs require older/newer versions than what you typically run).
+    </p>
+
+    <p>
+    MacOS computers come with a very old version of python pre-installed.
+    Linux machines sometimes come with a newer version pre-installed, though
+    very minimal distributions will come without a python interpreter
+    altogether.
+    MacOS, most Linux distributions, and Windows all have <em>system</em>
+    package managers (either official, like <code>apt</code> on Debian Linux,
+    or third party, like MacPorts or Homebrew on MacOS/Chocolatey on Windows)
+    that let you quickly install a version of python;
+    <strong>don't use them.</strong>
+    They are tied in to various tools throughout your system, so that breaking
+    them might break system-wide tools you depend on, and they tend to be
+    incomplete and out of date.
+    Installing python and libraries
+    [<a id="link-to-footnote1" href="#footnote1">1</a>]
+    using the system package manager means
+    possibly having to remove and reinstall everything in your fragile dev
+    environment at some point in the future, which can easily take over a day
+    for complex environments, assuming it's possible at all.
+    This violates what is, in my opinion, the most important rule of a
+    development environment:
+    </p>
+
+    <blockquote>
+      It should be easy to destroy and rebuild your dev environment.
+    </blockquote>
+
+    <p>
+    Having this property means you will never live in fear of the day when you
+    inevitably mess up your configuration and need to delete it all and start
+    over.
+    You will not fear adding new team members or switching development
+    computers, and chances are your deployments will become much easier.
+    </p>
+
+    <p>
+    The solution is to use Anaconda's python distribution, which includes a
+    nice, fast, cross-platform python package manager (<code>conda</code>) and
+    a nice development environment management system, which I'll discuss in the
+    next section.
+    </p>
+
+    <p>
+    TL;DR<br>
+    ~~~~~
+    </p>
+
+    <ol>
+      <li>Install <a href="https://www.anaconda.com/products/individual">Anaconda</a>
+        [<a href="https://repo.anaconda.com/archive/Anaconda3-2021.05-MacOSX-x86_64.pkg">MacOS</a>]
+        [<a href="https://repo.anaconda.com/archive/Anaconda3-2021.05-Windows-x86_64.exe">Win</a>]
+        [<a href="https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh">Linux</a>].
+        If it asks you whether you'd like to install
+        <a href="https://www.jetbrains.com/pycharm/">PyCharm</a> as well, say
+        yes if you don't have it installed already (in which case you can skip
+        step 2).
+      </li>
+    </ol>
+
+    <p>
+    PICK AN IDE/EDITOR<br/>
+    ------------------
+    </p>
+
+    <p>
+    You don't <em>really</em> need an
+    <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">
+      integrated development environment
+    </a>
+    (IDE, i.e. a program for editing and running your code)
+    for python dev, since <code>ipython</code>, Jupyter, <code>ripgrep</code>,
+    and your favorite text editor can handle 98% of what you'd need an IDE for.
+    If you're command-line savvy and have a favorite text editor, you can keep
+    using your favorite tools quite easily.
+    </p>
+
+    <p>
+    If you're not yet a command-line guru, however, you should try a nice IDE
+    like <a href="https://www.jetbrains.com/pycharm/">PyCharm</a>.
+    It has great code exploration, debugging, and running/testing tools built
+    in, with full support for various arcane interpreter setups (in case you
+    need to deviate in the future from the set up I suggest in this post), and
+    is cross-platform.
+    The community version is free and adequate for most purposes.
+    </p>
+
+    <p>
+    TL;DR<br>
+    ~~~~~
+    </p>
+
+    <ol start=2>
+      <li>
+        Install <a href="https://www.jetbrains.com/pycharm/download">PyCharm</a>
+        (if you didn't already do it while installing Anaconda).
+      </li>
+    </ol>
+
+    <p>
+    ------------------------------------------------------------
+    </p>
+
+    <p>
+    [<a id="footnote1" href="#link-to-footnote1">1</a>]
+    Seasoned python devs might correctly observe that you could simply use a
+    <code>virtualenv</code>.
+    This is a valid technique, but it does not solve the related problem of
+    picking and installing an interpreter (let alone managing multiple
+    versions), nor of the limitations of
+    <code>pip</code> or the inconvenience of having virtual environments
+    scattered all over your dev folders.
+    <code>pipenv</code> uses <code>virtualenv</code> and tracks your
+    dependencies automatically, but anything that <code>pipenv</code> is
+    capable of automatically tracking is going to be very easy to track or
+    reconstruct manually, reducing it's utility (not to mention it was slow and
+    buggy last I used it).
+    </p>
+  </body>
+</html>

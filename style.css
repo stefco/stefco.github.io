@@ -35,12 +35,24 @@
   font-weight: bold;
   font-style: italic;
 }
+@font-face {
+  font-family: 'Apl';
+  src: /* url('/fonts/gohufont/GohuFont-Bold.woff2') format('woff2'),
+        url('/fonts/gohufont/GohuFont-Bold.woff') format('woff'), */
+        url('/fonts/apl-385/Apl385.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
 
 body {
   /* max-width: 70em; */
   /* margin-left: auto; */
   /* margin-right: auto; */
   /* position: relative; */
+}
+
+code {
+  font-family: Apl, "Courier New", Courier, monospace;
 }
 
 body, pre {
