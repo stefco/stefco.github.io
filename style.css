@@ -49,14 +49,23 @@ body {
   /* margin-left: auto; */
   /* margin-right: auto; */
   /* position: relative; */
+  padding: 0;
+  margin: .5em 0;
 }
 
-code {
+pre.code, code {
   font-family: Apl, "Courier New", Courier, monospace;
+  background-color: #eee;
+}
+
+pre.code {
+  margin: .5em 0em;
+  padding: 0.5em 1em;
+  overflow: scroll;
 }
 
 body, pre {
-  font-family: IosevkaSlab, "Courier New", Courier, monospace;
+  font-family: Apl, "Courier New", Courier, monospace;
   font-size: 1em;
   /* color: black; */
 }
@@ -69,13 +78,23 @@ pre {
   margin: 0;
 }
 
-h2, p, li {
+h1, h2, p, ol, ul, pre.fake-bash {
   max-width: 50em;
+  margin: 1em auto;
+}
+
+h1, h2, p, pre.fake-bash, blockquote {
+  width: calc(100vw - 2em);
+}
+
+ol, ul {
+  width: calc(100vw - 4em);
 }
 
 blockquote {
   max-width: 40em;
   font-style: italic;
+  margin: 1.5em auto;
 }
 
 blockquote em {
@@ -88,6 +107,10 @@ ul {
 
 ul > li {
   text-indent: -1em;
+}
+
+li {
+  margin: 1em 0;
 }
 
 ul > li:before {

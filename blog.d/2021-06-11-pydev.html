@@ -5,29 +5,60 @@
     <link rel="stylesheet" type="text/css" href="/style.css">
   </head>
   <body>
-    <p>
+    <h1>
     MINIMALLY PAINFUL PYTHON DEVELOPMENT<br/>
     ====================================
-    </p>
+    </h1>
 
     <p>
-    [Stef Countryman -- 2019/07/15] [<a href="..">home</a>] [<a href=".">blogs</a>]
+    [Stef Countryman -- 2021/06/21] [<a href="..">home</a>] [<a href=".">blogs</a>]
+    <br/>[Stef Countryman -- 2022/08/29] (Updated)
     </p>
 
     <p>
     This post is meant to help you quickly get a nice, maintainable python
     environment up and running.
     <strong>
-      You can ignore the explanations and just follow the instructions at
-      the end of each subsection (under TL;DR) if you just want to get going
-      quickly.
+      Feel free to just follow the instructions in the TL;DR section,
+      referencing the extended explanations as needed (I won't be offended).
     </strong>
     </p>
 
-    <p>
+    <h2>
+    TL;DR<br>
+    -----
+    </h2>
+
+    <ol>
+      <li>
+        <a href="#sec1">Set up your interpreter</a>.
+        Install <a href="https://www.anaconda.com/products/individual">Anaconda</a>
+        [<a href="https://repo.anaconda.com/archive/Anaconda3-2021.05-MacOSX-x86_64.pkg">MacOS</a>]
+        [<a href="https://repo.anaconda.com/archive/Anaconda3-2021.05-Windows-x86_64.exe">Win</a>]
+        [<a href="https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh">Linux</a>].
+        If it asks you whether you'd like to install
+        <a href="https://www.jetbrains.com/pycharm/">PyCharm</a> as well, say
+        yes if you don't have it installed already (in which case you can skip
+        step 2).
+      </li>
+      <li>
+        <a href="#sec2">Track your dependencies</a>.
+        Find a list of all of your dependencies, ideally manually, and put them
+        in a conda environment YAML file called something like
+        <code>your-project-env.yml</code>. Update this environment as you
+        install/remove new packages for your project.
+      </li>
+      <li>
+        <a href="#sec3">Pick an IDE/Editor</a>.
+        Install <a href="https://www.jetbrains.com/pycharm/download">PyCharm</a>
+        (if you didn't already do it while installing Anaconda).
+      </li>
+    </ol>
+
+    <h2>
     MOTIVATION<br/>
     ----------
-    </p>
+    </h2>
 
     <p>
     Developing multiple python projects with arcane dependencies using the
@@ -56,10 +87,11 @@
     colleagues in a central place.
     </p>
 
-    <p>
-    PICK AN INTERPRETER<br/>
-    -------------------
-    </p>
+    <h2>
+    <a id='sec1'></a>
+    SET UP YOUR INTERPRETER<br/<>
+    -----------------------
+    </h2>
 
     <p>
     The first thing to do is to install an actual python interpreter.
@@ -107,33 +139,125 @@
     </p>
 
     <p>
-    The solution is to use Anaconda's python distribution, which includes a
-    nice, fast, cross-platform python package manager (<code>conda</code>) and
-    a nice development environment management system, which I'll discuss in the
-    next section.
+    The (likely) easiest solution is to use Anaconda's python distribution,
+    which includes a nice, fast, cross-platform python package manager
+    (<code>conda</code>) and a nice development environment management system,
+    which I'll discuss in the next section.
+    </p>
+
+    <h2>
+    <a id="sec2"></a>
+    TRACK YOUR DEPENDENCIES (IN A CONDA ENVIRONMENT)<br/>
+    ------------------------------------------------
+    </h2>
+
+    <p>
+    You can use Anaconda to create distinct Python environments for each
+    project you are working on.
+    You can create a new environment (with no packages yet installed) using
+    <code>conda create -n my-environment-name</code>, list your existing python
+    environments with <code>conda env list</code>, and activate the one you want
+    (e.g. <code>my-environment-name</code>)
+    with <code>conda activate my-environment-name</code>.
     </p>
 
     <p>
-    TL;DR<br>
-    ~~~~~
+    In general, the easiest way to manage your environments is to have a single
+    file which specifies all the dependencies, allowing you to install all of
+    them with a single command.
+    <code>pip</code> allows you to do this with what is usually referred to as
+    a requirements file, called <code>requirements.txt</code> by convention.
+    The Conda approach is more powerful; it uses a
+    <a href='https://yaml.org/'>YAML</a> file which optionally includes
+    information about the python version and environment name as well as the
+    ability to specify <code>pip</code> dependencies (since more niche packages
+    usually need to be installed that way).
     </p>
 
-    <ol>
-      <li>Install <a href="https://www.anaconda.com/products/individual">Anaconda</a>
-        [<a href="https://repo.anaconda.com/archive/Anaconda3-2021.05-MacOSX-x86_64.pkg">MacOS</a>]
-        [<a href="https://repo.anaconda.com/archive/Anaconda3-2021.05-Windows-x86_64.exe">Win</a>]
-        [<a href="https://repo.anaconda.com/archive/Anaconda3-2021.05-Linux-x86_64.sh">Linux</a>].
-        If it asks you whether you'd like to install
-        <a href="https://www.jetbrains.com/pycharm/">PyCharm</a> as well, say
-        yes if you don't have it installed already (in which case you can skip
-        step 2).
-      </li>
-    </ol>
+    <p>
+    If you already have a conda environment file called, e.g.,
+    <code>env.yml</code> for an environment
+    called <code>my-environment-name</code>, you can simply run
+    <code>conda env create -f env.yml</code>, and it will install all required
+    packages; you can then activate the environment with
+    <code>conda activate my-environment-name</code> and start using it.
+    Such an environment file's contents might look as simple as:
+    </p>
+    <pre class='code'>
+name: my-environment-name
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - numpy
+  - pip
+  - pip:
+    - nptyping==1.4.4</pre>
 
     <p>
+    In this example, we are allowing Anaconda to install Python version 3.9, as
+    well as packages from
+    <code>conda-forge</code> (which is user-maintained and contains most
+    packages); more precisely, we are installing Numpy using the
+    <code>conda</code> package manager; and we are installing a more niche
+    package, <code>nptyping</code>, using <code>pip</code>, since it's not
+    available on <code>conda-forge</code>.
+    We specify our <code>pip</code> dependencies as a list under
+    <code>-pip:</code>, but we also need to explicitly install the
+    <code>pip</code> package manager itself using <code>conda</code> in order
+    to be able to do so.
+    We've required <code>nptyping</code> to use a specific version (1.4.4)
+    while allowing Numpy to default to the latest version; in general, it's
+    usually easiest to leave the version numbers unspecified until the point
+    where specific versions are required to avoid bugs you've found.
+    Finally, we have also specified the name of the environment; both this and
+    the Python version are optional, but it's nice to be extra specific with
+    these just to make sure things work.
+    </p>
+
+    <p>
+    You can get a list of all top-level imported packages in your
+    codebase by running something like (note that their names on conda
+    or pip might differ from the imported package names):
+    </p>
+
+    <pre class='code'>
+find . -name '*ipynb' -or -name '*py' -exec sed -n 's/^import *\([^ .]*\).*/\1/p;s/^from *\([^ .]*\) *import.*/\1/p' {} \; | sort | uniq</pre>
+
+    <p>
+    If you can't get your code to work on a newly-built environment,
+    you might want to see exactly which versions of each package you
+    have installed by running <code>pip freeze</code> in whichever
+    environment you are already using. You should see a bunch of items
+    that look like e.g. <code>typish==1.9.3</code>.
+    Alternatively, if you've already been using <code>conda</code> to manage
+    your dependencies, you can directly export an environment file with
+    <code>conda env export >my-env.yml</code> (substituting
+    <code>my-env.yml</code> with whatever you want to call your environment);
+    this output will include information about the source of each package, i.e.
+    whether it was from
+    <a href='https://pypi.org/'>PyPI</a> (using
+    <code>pip</code>) or from <a href='https://conda-forge.org/'>
+      <code>conda-forge</code></a> (using <code>conda</code>).
+    </p>
+
+    <p>
+    In both cases, you'll end up with a <em>full</em> list of installed
+    packages; most of these will probably be dependencies of the packages you
+    are actually using.
+    If you're taking this approach, it's good to delete everything that doesn't
+    appear in the above <code>find</code> command, unless you really need a
+    specific version <em>or</em> want a specific record of installed packages
+    that worked for your project.
+    [<a id="link-to-footnote2" href="#footnote2">2</a>]
+    </p>
+
+    <h2>
+    <a id='sec3'></a>
     PICK AN IDE/EDITOR<br/>
     ------------------
-    </p>
+    </h2>
 
     <p>
     You don't <em>really</em> need an
@@ -158,18 +282,6 @@
     </p>
 
     <p>
-    TL;DR<br>
-    ~~~~~
-    </p>
-
-    <ol start=2>
-      <li>
-        Install <a href="https://www.jetbrains.com/pycharm/download">PyCharm</a>
-        (if you didn't already do it while installing Anaconda).
-      </li>
-    </ol>
-
-    <p>
     ------------------------------------------------------------
     </p>
 
@@ -186,7 +298,23 @@
     dependencies automatically, but anything that <code>pipenv</code> is
     capable of automatically tracking is going to be very easy to track or
     reconstruct manually, reducing it's utility (not to mention it was slow and
-    buggy last I used it).
+    buggy last I used it) [<a id="link-to-footnote3" href="#footnote3">3</a>].
     </p>
+
+    <p>
+    [<a id="footnote2" href="#link-to-footnote2">2</a>]
+    If the latter is critical to getting your code to work, however, you might
+    want to go one step further and immortalize your environment in a docker
+    image.
+    It's more work, but for some numerical/scientific environments, it's the
+    <em>only</em> convenient way to have a portable and reusable environment
+    for running your code.
+    </p>
+
+    <p>
+    [<a id="footnote3" href="#link-to-footnote3">3</a>]
+    Update: this still seems to be true in 2022.
+    </p>
+    <script src='../script.js'></script>
   </body>
 </html>
