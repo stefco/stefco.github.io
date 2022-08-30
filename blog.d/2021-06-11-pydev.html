@@ -218,14 +218,43 @@ dependencies:
 
     <p>
     You can get a list of all top-level imported packages in your
-    codebase by running something like (note that their names on conda
-    or pip might differ from the imported package names):
+    codebase by running this command (for regular <code>.py</code> python
+    files):
     </p>
 
     <pre class='code'>
-find . -name '*ipynb' -or -name '*py' -exec sed -n 's/^import *\([^ .]*\).*/\1/p;s/^from *\([^ .]*\) *import.*/\1/p' {} \; | sort | uniq</pre>
+find . -name '*py' -exec sed -n 's/^import *\([^ .]*\).*/\1/p;s/^from *\([^ .]*\) *import.*/\1/p' {} \; | sort | uniq</pre>
 
     <p>
+    or this command (for (<code>.ipynb</code> Jupyter notebook files), which
+    requires you to install
+    <a href='https://stedolan.github.io/jq/'><code>jq</code></a> for JSON
+    parsing [<a id="link-to-footnote2" href="#footnote2">2</a>]:
+
+    <pre class='code'>
+find . -name '*ipynb' -exec jq -jr '.cells | .[].source | .[]' {} \; | sed -n 's/^import *\([^ .]*\).*/\1/p;s/^from *\([^ .]*\) *import.*/\1/p' | sort | uniq</pre>
+
+    <p>
+    or handle both types of files in one fell swoop:
+    </p>
+
+    <pre class='code'>
+(
+    find . -name '*ipynb' -exec jq -jr '.cells | .[].source | .[]' {} \;
+    find . -name '*py' -exec cat {} \;
+) \
+    | sed -n 's/^import *\([^ .]*\).*/\1/p;s/^from *\([^ .]*\) *import.*/\1/p' \
+    | sort \
+    | uniq</pre>
+
+    <p>
+    </p>
+
+    <p>
+    Note that the names of packages on conda or pip might differ from the
+    imported package names, and this won't tell you which versions are required
+    (which can be vital for getting complex numerical environments working
+    properly).
     If you can't get your code to work on a newly-built environment,
     you might want to see exactly which versions of each package you
     have installed by running <code>pip freeze</code> in whichever
@@ -250,7 +279,7 @@ find . -name '*ipynb' -or -name '*py' -exec sed -n 's/^import *\([^ .]*\).*/\1/p
     appear in the above <code>find</code> command, unless you really need a
     specific version <em>or</em> want a specific record of installed packages
     that worked for your project.
-    [<a id="link-to-footnote2" href="#footnote2">2</a>]
+    [<a id="link-to-footnote3" href="#footnote3">3</a>]
     </p>
 
     <h2>
@@ -303,6 +332,14 @@ find . -name '*ipynb' -or -name '*py' -exec sed -n 's/^import *\([^ .]*\).*/\1/p
 
     <p>
     [<a id="footnote2" href="#link-to-footnote2">2</a>]
+    You can easily install <code>jq</code> with e.g. <code>brew install jq</code>
+    (MacOS using Homebrew) or <code>choco install jq</code> (Windows using
+    Chocolatey); see <a href='./2022-08-06-react-0-to-1.html'>react 0 to 1</a>
+    for relevant links.
+    </p>
+
+    <p>
+    [<a id="footnote3" href="#link-to-footnote3">3</a>]
     If the latter is critical to getting your code to work, however, you might
     want to go one step further and immortalize your environment in a docker
     image.
@@ -312,7 +349,7 @@ find . -name '*ipynb' -or -name '*py' -exec sed -n 's/^import *\([^ .]*\).*/\1/p
     </p>
 
     <p>
-    [<a id="footnote3" href="#link-to-footnote3">3</a>]
+    [<a id="footnote4" href="#link-to-footnote4">4</a>]
     Update: this still seems to be true in 2022.
     </p>
     <script src='../script.js'></script>
