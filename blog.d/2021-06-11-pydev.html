@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <title>Stefblog -- Minimally Painful Python Development</title>
     <link rel="stylesheet" type="text/css" href="/style.css">
   </head>
@@ -18,10 +19,11 @@
     <p>
     This post is meant to help you quickly get a nice, maintainable python
     environment up and running.
-    <strong>
-      Feel free to just follow the instructions in the TL;DR section,
-      referencing the extended explanations as needed (I won't be offended).
-    </strong>
+    Click on code blocks to copy them.
+    <em>
+      You can just follow the instructions in the TL;DR section,
+      referencing the extended explanations as needed.
+    </em>
     </p>
 
     <h2>
@@ -39,7 +41,7 @@
         If it asks you whether you'd like to install
         <a href="https://www.jetbrains.com/pycharm/">PyCharm</a> as well, say
         yes if you don't have it installed already (in which case you can skip
-        step 2).
+        that step).
       </li>
       <li>
         <a href="#sec2">Track your dependencies</a>.
@@ -49,7 +51,13 @@
         install/remove new packages for your project.
       </li>
       <li>
-        <a href="#sec3">Pick an IDE/Editor</a>.
+        <a href="#sec3">Organize your project into a module/package</a>.
+        Keep all of your shared code and scripts in a single directory and use
+        a tool like <a href='https://flit.pypa.io/en/latest/'>Flit</a> to
+        handle installing and distributing it.
+      </li>
+      <li>
+        <a href="#sec4">Pick an IDE/Editor</a>.
         Install <a href="https://www.jetbrains.com/pycharm/download">PyCharm</a>
         (if you didn't already do it while installing Anaconda).
       </li>
@@ -77,9 +85,9 @@
     is easy to learn and has many useful libraries that you can freely use,
     and therefore starts a project without setting up a decent dev environment,
     not realizing what horrors await them.
-    Fortunately, practices are improving somewhat, and with a bit of guidance,
-    managing python projects can be as forgiving to novice programmers as the
-    syntax of the code itself.
+    Fortunately, practices are improving somewhat, and some reasonable choices,
+    managing python projects can be almost as forgiving to novice programmers
+    as the syntax of the code itself.
     </p>
 
     <p>
@@ -284,6 +292,61 @@ find . -name '*ipynb' -exec jq -jr '.cells | .[].source | .[]' {} \; | sed -n 's
 
     <h2>
     <a id='sec3'></a>
+    ORGANIZE YOUR PROJECT INTO A MODULE/PACKAGE<br/>
+    -------------------------------------------
+    </h2>
+
+    <p>
+    You may have already noticed that, if you have a file called
+    <code>example.py</code> and are running a python script or interpreter in
+    the same directory, you can run <code>import example</code> to import the
+    contents of that file into your current environment.
+    This is a <em>module</em>, and it's the simplest way to turn your code into
+    a reusable library.
+    If you have a bunch of scripts or Jupyter notebooks in a project using the
+    same functions repeatedly, it might make sense to put those functions into
+    a module and import them (like you would any other libraries) in the
+    scripts/notebooks themselves.
+    </p>
+
+    <p>
+    If you want to reuse a lot of code, it makes sense to break your library up
+    into smaller submodules; Numpy does this with its less common linear
+    algebra tools, which can be accessed via e.g.
+    <code>import numpy.linalg</code> or <code>from numpy import linalg</code>.
+    Such a library composed of multiple source files (modules) bundled together
+    is called a <em>package</em>.
+    If we wanted to make an <code>example</code> package, we can simply run
+    </p>
+    <pre class='code'>
+mkdir example
+mv example.py example/__init__.py</pre>
+
+    <p>
+    We can then run <code>import example</code> again within python just as
+    before.
+    This works because Python treats a directory containing an
+    <code>__init__.py</code> file as if it were a module of the same name.
+    Unlike a module, however, we can add additional submodules and subpackages
+    to a package; for example, if we add a submodule
+    <code>examples.constants</code> and a subpackage
+    <code>examples.utils</code>, our entire package's directory structure will
+    now look like:
+    </p>
+    <pre class='code'>
+example
+├── __init__.py
+├── constants.py
+└── utils
+    └── __init__.py</pre>
+
+    <p>
+    You can continue this recursively as needed, building out a nicely
+    organized library.
+    </p>
+
+    <h2>
+    <a id='sec4'></a>
     PICK AN IDE/EDITOR<br/>
     ------------------
     </h2>
