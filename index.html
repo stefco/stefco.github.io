@@ -28,7 +28,7 @@
 # <span class='important-comment'>&#9616;&#9608;&#9608;&#9608;&#9612;&#9616;&#9608;&#9612;.&#9616;&#9612;&#9616;&#9608;&#9604;&#9608;&#9612;&#9608;&#9608;&#9616;&#9608;&#9612; &#9616;&#9608;&#9612;&#183;&#9616;&#9608;&#8226;&#9608;&#9612; &#9616;&#9608;&#9600;&#183;.&#9608;&#9608; &#9608;&#9608;&#9612;&#9616;&#9608;&#9612;&#9616;&#9608; &#9642;&#9616;&#9612;&#9608;&#9608;&#9616;&#9608;&#9612;</span>
 # <span class='important-comment'>&#183;&#9600;&#9600;&#9600;  &#9600;&#9608;&#9604;&#9600;&#9642; &#9600;&#9600;&#9600; &#9600;&#9600; &#9608;&#9642; &#9600;&#9600;&#9600; .&#9600;  &#9600;  &#9600; &#8226; &#9600;&#9600;  &#9608;&#9642;&#9600;&#9600;&#9600; &#9600;  &#9600; &#9600;&#9600; &#9608;&#9642;</span></span>
 
-<img id='portrait' src='/github-small.jpg'/>
+<img id='portrait' src='/portrait.jpeg'/>
 <div class='nav'><span class='comment'># consts</span>
 <span class='const'>CONTACT</span>='<a href="mailto:stef@stc.sh">stef[at]stc.sh</a>'<!-- <span class='const'>BIO</span>=<a href="#bio">bio</a> -->
 <span class='const'>RESUME</span>=<a href="stef-countryman-resume.pdf">stef-countryman-resume.pdf</a>
@@ -48,10 +48,24 @@
 </div>
 
 usage() {
-    cat &lt;&lt;&lt;<span class='str'>'
-BIO: stc.sh [-h]</span></pre>
+    cat &lt;&lt;&lt;'
+BIO: stc.sh [-h]</pre>
 
     <span class='str'>
+      <p>
+      Software Engineer with a Ph.D. in Physics and a knack for solving intricate problems. Ready to bring my cross-disciplinary expertise, analytical skills, and collaborative spirit to excel as as a software engineer or data scientist.
+      </p>
+      <ul>
+        <li>Seasoned in complex statistical and data analysis, contributing to LIGO's Nobel Prize-winning discovery.</li>
+        <li>Thrived in the startup world at Medallion, enhancing React/Django web apps and streamlining developer workflows.</li>
+	<li>Pioneered cutting-edge computational methods, including a patented hash table data structure.</li>
+        <li>Fast and deep learner with over a decade of software experience; proficient in Python, C, Rust, SQL, cloud infrastructure and more.</li>
+        <li>Thousands of hours teaching, mentoring, presenting, and writing about complex ideas for audiences from middle schoolers to professors, CEOs, and staff engineers.</li>
+        <li>Passion for technical excellence, documentation, and knowledge sharing.</li>
+        <li>Entrepreneurial mindset, with experience founding/running a successful small business and building an MVP application.</li>
+      </ul>
+    </span>
+      <!--
       <h1>
         OVERVIEW<br/>
         ========
@@ -188,12 +202,11 @@ BIO: stc.sh [-h]</span></pre>
         Nobel-prize-winning detections. Japan's KAGRA GW detector will also
         rely on our proven timing system.
       </p>
+      -->
 
-    </span>
-
-<pre class='fake-bash'><span class='str'>OPTIONS:
+<pre class='fake-bash'>OPTIONS:
 -h          Print this help string.
-'</span>
+'
     exit 0
 }
 for opt in "$@"; do [[ "${opt}" = "-h" ]] &amp;&amp; usage; done
